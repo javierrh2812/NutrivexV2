@@ -1,5 +1,70 @@
 package com.nutrivex.platform.app.models;
 
-public class Request {
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="requests")
+public class Request implements Serializable{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;	
+	private String message;	
+	private Date date;	
+	
+	@OneToOne
+	@JoinColumn(name="patient_id")
+	private User patient;
+	
+	@OneToOne
+	@JoinColumn(name="nutritionist_id")
+	private User nutritionist;
+	
+	public Request() {
+		super();
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public User getPatient() {
+		return patient;
+	}
+	public void setPatient(User patient) {
+		this.patient = patient;
+	}
+	public User getNutritionist() {
+		return nutritionist;
+	}
+	public void setNutritionist(User nutritionist) {
+		this.nutritionist = nutritionist;
+	}
+
+
+	private static final long serialVersionUID = 1L;
+	
 
 }
