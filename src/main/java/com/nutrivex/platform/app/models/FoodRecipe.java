@@ -43,6 +43,6 @@ public class FoodRecipe implements Serializable{
 		this.food = food;
 	}
 	
-	
+	 
 
 }
