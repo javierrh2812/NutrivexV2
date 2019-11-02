@@ -26,12 +26,43 @@ public class Person implements Serializable {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name = "weight")
 	private Float weight;
+	
+	@Column(name = "height")
 	private Float height;
+	
+	@Column(name = "sex")
 	private String sex;
+	
+	@Column(name = "nutrionist_spreciality")
+	private String nutrionistSpeciality;
+	
+	@Column(name = "tuition_number")
+	private Long tuitionNumber;
 	
 	//PUBLIC METHODS// 
 	
+	public String getNutrionistSpeciality() {
+		return nutrionistSpeciality;
+	}
+
+
+	public void setNutrionistSpeciality(String nutrionistSpeciality) {
+		this.nutrionistSpeciality = nutrionistSpeciality;
+	}
+
+
+	public Long getTuitionNumber() {
+		return tuitionNumber;
+	}
+
+
+	public void setTuitionNumber(Long tuitionNumber) {
+		this.tuitionNumber = tuitionNumber;
+	}
+
+
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
