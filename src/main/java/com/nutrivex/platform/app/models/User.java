@@ -25,10 +25,10 @@ public class User implements Serializable{
 	//private String username;
 	
 	@NotEmpty
-	private String password;
+	private String email;
 	
 	@NotEmpty
-	private String email;
+	private String password;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="person_id")
@@ -43,6 +43,10 @@ public class User implements Serializable{
 	private CreditCard creditCard;
 	
 	/*PUBLIC METHODS */
+	
+	public String toString() {
+		return person.getFirstName()+" "+person.getLastName();
+	}
 	
 	public Long getId() {
 		return id;

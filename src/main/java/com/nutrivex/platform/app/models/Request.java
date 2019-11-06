@@ -20,6 +20,7 @@ public class Request implements Serializable{
 	private Long id;	
 	private String message;	
 	private Date date;	
+	private Boolean acepted;
 	
 	@OneToOne
 	@JoinColumn(name="patient_id")
@@ -61,6 +62,14 @@ public class Request implements Serializable{
 	}
 	public void setNutritionist(User nutritionist) {
 		this.nutritionist = nutritionist;
+	}
+
+
+	public Boolean getAcepted() {
+		return acepted;
+	}
+	public void setAcepted(Boolean acepted) {
+		this.acepted = acepted;
 	}
 
 
