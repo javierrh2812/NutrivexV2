@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/nutritionist:: head"></head>
+
+<body>
+
+	<header th:replace="layout/nutritionist :: header"></header>
+
+	<div class="container py-4">
+		<h3 th:text="${message}"></h3>
+		<div class="card bg-light">
+		
+			<div class="card-header" th:text="${title}" align="center"></div>
+
+			<div class="card-body">
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Paciente</th>
+							<th>Mensaje</th>
+							<th>Fecha</th>
+							<th>Atender</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="request:${requests}">
+							<td th:text="${request.patient}"></td>
+							<td th:text="${request.message}"></td>
+							<td th:text="${request.date}"></td>
+							<td><a class="btn btn-success btn-sm"
+								th:href="@{'/requests/list/?id_request=' + ${request.id}+'&id_nut=1'}"
+								th:text="'Atender solicitud'"></a></td>
+						</tr>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<footer th:replace="layout/nutritionist :: footer"></footer>
+	<p th:replace="layout/nutritionist :: scripts"></p>
+</body>
+</html>

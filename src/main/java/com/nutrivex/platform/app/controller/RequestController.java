@@ -66,5 +66,13 @@ public class RequestController {
 		}
 		return "/index";
 	}
-
+	@GetMapping(value="/requests")
+	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
+		try {
+			model.addAttribute("Requests", requestService.getRequestsByNutritionistId(id_nut));
+		}catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "/requestsList";
+	}
 }

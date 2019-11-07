@@ -4,9 +4,11 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.nutrivex.platform.app.models.Request;
 
+@Repository
 public interface RequestRepository extends JpaRepository<Request, Long>{
 	
 	@Query("select r from Request r where r.nutritionist.id=?1")
