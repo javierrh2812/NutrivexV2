@@ -73,6 +73,6 @@ public class RequestController {
 		}catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/requestsList";
+		return "requests/list";
 	}
 }
