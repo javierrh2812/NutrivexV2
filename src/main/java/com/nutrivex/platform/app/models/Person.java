@@ -37,13 +37,9 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-<<<<<<< HEAD
 	@Column(name = "nutrionist_spreciality")
 	private String nutrionistSpeciality;
-	
-	@Column(name = "tuition_number")
-	private Long tuitionNumber;
-=======
+
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 	
@@ -52,7 +48,6 @@ public class Person implements Serializable {
 	
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
 	private User user;	
->>>>>>> Javier
 	
 	//PUBLIC METHODS// 
 	
@@ -63,16 +58,6 @@ public class Person implements Serializable {
 
 	public void setNutrionistSpeciality(String nutrionistSpeciality) {
 		this.nutrionistSpeciality = nutrionistSpeciality;
-	}
-
-
-	public Long getTuitionNumber() {
-		return tuitionNumber;
-	}
-
-
-	public void setTuitionNumber(Long tuitionNumber) {
-		this.tuitionNumber = tuitionNumber;
 	}
 
 
