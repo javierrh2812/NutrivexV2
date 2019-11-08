@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/patient :: head"></head>
+<head th:replace="layout/nutritionist :: head"></head>
 
 <body>
 
-	<header th:replace="layout/patient :: header"></header>
+	<header th:replace="layout/nutritionist :: header"></header>
+
+	<div class="container py-4">
+		<h3 th:text="${message}"></h3>
+		<div class="card bg-light">
+		
+			<div class="card-header" th:text="${title}" align="center"></div>
+
+			<div class="card-body">
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Mensaje</th>
+							<th>Fecha</th>
+							<th>Estado</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="reque:${reques}">
+							<td th:text="${reque.id}"></td>
+							<td th:text="${reque.message}"></td>
+							<td th:text="${reque.date}"></td>
+							<td><a class="btn btn-success btn-sm"
+								th:text="'Aceptar'"></a>
+								<a class="btn btn-danger btn-sm"
+								th:text="'Declinar'"></a></td> 
+						</tr>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>
 
 
-	<footer th:replace="layout/patient :: footer"></footer>
-	<p th:replace="layout/patient :: scripts"></p>
+	<footer th:replace="layout/nutritionist :: footer"></footer>
+	<p th:replace="layout/nutritionist :: scripts"></p>
 </body>
 </html>

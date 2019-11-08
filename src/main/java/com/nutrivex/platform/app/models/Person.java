@@ -37,9 +37,6 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-	@Column(name = "nutrionist_spreciality")
-	private String nutrionistSpeciality;
-
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 	
@@ -51,16 +48,6 @@ public class Person implements Serializable {
 	
 	//PUBLIC METHODS// 
 	
-	public String getNutrionistSpeciality() {
-		return nutrionistSpeciality;
-	}
-
-
-	public void setNutrionistSpeciality(String nutrionistSpeciality) {
-		this.nutrionistSpeciality = nutrionistSpeciality;
-	}
-
-
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -10,7 +10,7 @@ import com.nutrivex.platform.app.models.Request;
 public interface RequestRepository extends JpaRepository<Request, Long>{
 	
 	@Query("select r from Request r where r.nutritionist.id=?1")
-	public Collection<Request> listarSolicitudesPorIdDeNutricionista(Long id);
+	public Collection<Request> listarSolicitudesPorIdDeNutricionista(Long id_nut);
 	
 	@Query("select r from Request r where r.patient.id=?1")
 	public Request buscarSolicitudDePaciente(Long id_pat);
