@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nutrivex.platform.app.models.Person;
 import com.nutrivex.platform.app.models.Request;
 import com.nutrivex.platform.app.repository.RequestRepository;
 
@@ -40,7 +39,7 @@ public class RequestServiceImpl implements RequestService{
 	}
 
 	@Override
-	public Collection<Person> getRequestsByNutritionistId(Long id) {
+	public Collection<Request> getRequestsByNutritionistId(Long id) {
 		// TODO Auto-generated method stub
 		return requestRepository.listarSolicitudesPorIdDeNutricionista(id);
 	}

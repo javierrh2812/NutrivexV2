@@ -55,20 +55,24 @@ public class RequestController {
 	}
 	
 	
-	@GetMapping(value="/requests")
+	@GetMapping(value="/requested")
 	public String listRequests(@RequestParam Long id_nut, Model model) {
 		Request r = requestService.findRequestByNutritionistId(id_nut);
 		try {
 			if(r == null) {
+				model.addAttribute("title", "Solicitudes");
 				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
+				return "/index";
 			}
 			else {
 				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
+				return "/requestsList";
 			}
-		} catch(Exception e) {
+		} 
+		catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
+			return "/index";
 		}
-		return "/requestsList";
 	}
 
 	@PostMapping(value = "/save")

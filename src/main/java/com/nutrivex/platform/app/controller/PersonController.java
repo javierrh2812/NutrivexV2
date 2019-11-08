@@ -53,6 +53,8 @@ public class PersonController {
 		return "layout/patient";
 	}
 	
+	
+	
 	@GetMapping(value="/miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
 		Request r = requestService.findRequestByPatientId(id_pat);
