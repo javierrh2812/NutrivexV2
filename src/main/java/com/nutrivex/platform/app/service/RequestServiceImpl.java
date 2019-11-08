@@ -53,5 +53,15 @@ public class RequestServiceImpl implements RequestService{
 	public Request findRequestByNutritionistId(Long id_nut) {
 		return requestRepository.findRequestByNutritionist(id_nut);
 	}
+	
+	@Override
+	public void acceptingRequest(Long id_pat) {
+		requestRepository.acceptRequest(id_pat);
+	}
+	
+	@Override
+	public void rejectingRequest(Long id_pat) {
+		requestRepository.rejectRequest(id_pat);
+	}
 
 }
