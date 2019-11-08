@@ -53,6 +53,16 @@ public class RequestController {
 
 		return "requests/new";
 	}
+	
+	@GetMapping(value="/requests")
+	public String listRequests(@RequestParam(required = false) String str, Model model, Long id) {
+		try {
+			model.addAttribute("nutris", requestService.getRequestsByNutritionistId(id));
+		} catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "/requestsList";
+	}
 
 	@PostMapping(value = "/save")
 	public String saveRequest(@Valid Request request, BindingResult result, Model model, SessionStatus status) {
