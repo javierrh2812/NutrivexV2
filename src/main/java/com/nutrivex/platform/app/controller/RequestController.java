@@ -54,10 +54,17 @@ public class RequestController {
 		return "requests/new";
 	}
 	
+	
 	@GetMapping(value="/requests")
-	public String listRequests(@RequestParam(required = false) String str, Model model, Long id) {
+	public String listRequests(@RequestParam Long id_nut, Model model) {
+		Request r = requestService.findRequestByNutritionistId(id_nut);
 		try {
-			model.addAttribute("nutris", requestService.getRequestsByNutritionistId(id));
+			if(r == null) {
+				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
+			}
+			else {
+				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
+			}
 		} catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/patient :: head"></head>
+<head th:replace="layout/nutritionist :: head"></head>
 
 <body>
 
-	<header th:replace="layout/patient :: header"></header>
+	<header th:replace="layout/nutritionist :: header"></header>
 
 	<div class="container py-4">
 		<h3 th:text="${message}"></h3>
@@ -17,17 +17,18 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Nombre</th>
-							<th>Especialidad</th>
-							<th>Solicitud</th>
+							<th>Id</th>
+							<th>Fecha</th>
+							<th>Mensaje</th>
+							<th>Estado</th>
 						</tr>
 					</thead>
 					<tbody >
-						<tr th:each="nutri:${nutris}">
-							<td th:text="${nutri.firstName}"></td>
-							<td th:text="${nutri.nutritionistSpecialty}"></td>
+						<tr th:each="req:${reques}">
+							<td th:text="${reques.id}"></td>
+							<td th:text="${reques.date}"></td>
+							<td th:text="${reques.message}"></td>
 							<td><a class="btn btn-success btn-sm"
-								th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat=5'}"
 								th:text="'Enviar solicitud'"></a></td> 
 						</tr>
 					<tbody>
@@ -40,7 +41,7 @@
 	</div>
 
 
-	<footer th:replace="layout/patient :: footer"></footer>
-	<p th:replace="layout/patient :: scripts"></p>
+	<footer th:replace="layout/nutritionist :: footer"></footer>
+	<p th:replace="layout/nutritionist :: scripts"></p>
 </body>
 </html>
