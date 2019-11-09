@@ -35,9 +35,15 @@
 						<tr th:each="nutri:${nutris}">
 							<td th:text="${nutri.firstName}"></td>
 							<td th:text="${nutri.nutritionistSpecialty}"></td>
+<<<<<<< HEAD
 							<td><a class="btn btn-success btn-sm"
 								th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat='+${sessionUser.id}}"
 								th:text="'Enviar solicitud'"></a></td>
+=======
+							<td><a class="btn btn-success btn-sm" th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat='+${sessionUser.id}}"
+								th:text="'Enviar solicitud'"></a></td>
+		
+>>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
 						</tr>
 					<tbody>
 
