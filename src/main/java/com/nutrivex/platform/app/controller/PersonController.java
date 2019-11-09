@@ -43,6 +43,12 @@ public class PersonController {
 		return "/nutritionistsList";
 	}
 	
+	@GetMapping(value="/calendarFull")
+	public String calendar() {
+		return "/calendar";
+	}
+	
+	
 	@GetMapping(value="/miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
 		Request r = requestService.findRequestByPatientId(id_pat);

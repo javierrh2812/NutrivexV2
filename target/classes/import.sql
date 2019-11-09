@@ -22,6 +22,4 @@ INSERT INTO foods (name, type, portion, calories, carbs, protein) VALUES ('Arroz
 INSERT INTO recipes (name, description) VALUES ('Pescado a la plancha', 'Comer de acuerdo a lo pedido')
 INSERT INTO recipes (name, description) VALUES ('Escabeche de pescado', 'Una solucion para un futuro sano')
 
--- INSERT INTO foods_recipes (food_id) VALUES (1)
--- INSERT INTO foods_recipes (food_id) VALUES (2)
-
+INSERT INTO nutrition_plans (food_quantity_per_day, target_weight, total_time) VALUES (1, )
