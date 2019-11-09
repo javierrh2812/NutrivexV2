@@ -5,6 +5,7 @@ INSERT INTO roles (name) VALUES ("ADMIN");
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Ana', 'Herrera', 'Deportiva', '85210');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Lucio', 'Ramos', 'Perinatal', '52822');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Roberto', 'Perez', 'Deportiva', '72528');
@@ -26,6 +27,8 @@ INSERT INTO users (person_id, role_id) VALUES (8,2);
 =======
 =======
 >>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
+=======
+>>>>>>> fe25ea9fc9b69d03dd61f2ab84ada814c484af66
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Pedro', 'Garcia', 'Nutricion Deportiva', '1');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Juan', 'Perez', 'Nutricion Pediatrica', '2');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Linus', 'Torvalds', 'Nutricion y dietetica', '3');
@@ -45,8 +48,12 @@ INSERT INTO users (id, email, password, person_id, role_id) VALUES (6, "jramos@c
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (7, "ahurtado@correo.com","1234",7,2);
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (8, "jhuarachi@correo.com","1234",8,2);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 698bd9a54f76aa94bb17159f4c41efa80e2fe2ab
 =======
 
 >>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
+=======
+
+>>>>>>> fe25ea9fc9b69d03dd61f2ab84ada814c484af66
 
