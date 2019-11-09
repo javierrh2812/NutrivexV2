@@ -32,7 +32,7 @@ public class Recipe implements Serializable{
 	@JoinColumn(name = "recipe_id")
 	private List<FoodRecipe> items;
 	
-	@OneToMany(mappedBy = "recipes")
+	@OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
 	private List<NutritionPlanRecipe> nutritionPlanRecipe;
 	
 	public Long getId() {

@@ -37,7 +37,7 @@ public class NutritionPlanRecipe implements Serializable {
 	private NutritionPlan nutritionPlan; 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "recipe")
+	@JoinColumn(name = "recipe_id")
 	private Recipe recipe;
 	
 	public long getId() {

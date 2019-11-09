@@ -3,6 +3,7 @@ package com.nutrivex.platform.app.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class NutritionPlan implements Serializable {
 	@Column(name = "food_quantity_per_day")
 	private int foodQuantityPerDay;
 	
-	@OneToMany(mappedBy = "nutrition_plans")
+	@OneToMany(mappedBy = "nutritionPlan", cascade = CascadeType.ALL)
 	private List<NutritionPlanRecipe> nutritionPlanRecipe;
 	
 	public Long getId() {
