@@ -53,6 +53,15 @@ public class PersonController {
 		return "layout/patient";
 	}
 	
+	@GetMapping(value="/profileNutritionists")
+	public String toProfilePatient() {
+		return "/profileNutritionist";
+	}
+	
+	@GetMapping(value="/profilePatients")
+	public String toProfileNutritionist() {
+		return "/profilePatient";
+	}
 	
 	
 	@GetMapping(value="/miplan")

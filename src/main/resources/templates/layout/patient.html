@@ -20,6 +20,9 @@
 
 <!-- Custom styles for this template-->
 <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -39,7 +42,7 @@
 			</div>
 
 			<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-				<li class="nav-item"><a class="nav-link" th:text="@{#}" th:href="@{#}">Nombre</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/profilePatients}">Mi Perfil</a></li>
 				<li class="nav-item"><a class="nav-link" th:href="@{/nutritionist}">Cerrar Sesión</a></li>
 			</ul>
 
