@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/patient :: head"></head>
+<head th:replace="layout/layout :: head"></head>
 
 <body>
 
-	<header th:replace="layout/patient :: header"></header>
+	<header th:replace="layout/layout :: patientHeader"></header>
 
-	<div class="container-fluid">
+	<div class="container py-4">
 
+		<div class="card">
 
-		<div class="card border-primary mb-3">
-			<!-- Page Heading -->
-			<div class="card-header">Solicitud</div>
 			<div class="card-body">
+				<h3 class="card-title" th:text="${title}"></h3>
 				<form th:action="@{/requests/save}" th:object="${request}"
 					method="post">
 
@@ -52,7 +51,6 @@
 	</div>
 	<!-- /.container-fluid -->
 
-	<footer th:replace="layout/patient :: footer"></footer>
-	<p th:replace="layout/patient :: scripts"></p>
+	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

@@ -52,6 +52,10 @@ public class Person implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return firstName + " " + lastName;
+	}
 	
 	public Long getId() {
 		return id;

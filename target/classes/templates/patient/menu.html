@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body id="page-top">
+
+	<header th:replace="layout/layout :: patientHeader"></header>
+	<div class="container py-4">
+	<h1 align="center" th:text="${message}">Mensaje</h1>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+
+
+</body>
+</html>
