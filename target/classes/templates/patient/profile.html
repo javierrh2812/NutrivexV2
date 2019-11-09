@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout/patient :: head">
+<head th:replace="layout/layout :: head">
 </head>
 
 <body id="page-top">
 
-	<header th:replace="layout/patient :: header"></header>
+	<header th:replace="layout/layout :: patientHeader"></header>
 	<div class="container py-4">
 		
 		
@@ -144,10 +144,9 @@
 		
 		
 	</div>
-	<footer th:replace="layout/patient :: footer"></footer>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
 
-	<!-- scripts -->
-	<p th:replace="layout/patient :: scripts"></p>
 
 </body>
 </html>

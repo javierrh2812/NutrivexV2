@@ -58,15 +58,14 @@ public class PersonController {
 	
 
 
-	@GetMapping(value="/profileNutritionists")
-	public String toProfilePatient() {
-		return "/profileNutritionist";
+	@GetMapping(value="/profile")
+	public String toProfilePatient(Model model) {
+		model.addAttribute("sessionUser", sessionUser);
+		if (sessionUser.getUser().getRole().getId() == 1) return "/nutritionist/profile";
+		return "/patient/profile";
 	}
 	
-	@GetMapping(value="/profilePatients")
-	public String toProfileNutritionist() {
-		return "/profilePatient";
-	}
+	
 	
 	
 	@GetMapping(value="/miplan")
@@ -90,6 +89,12 @@ public class PersonController {
 				model.addAttribute("title", "Inicio");
 				model.addAttribute("message", "En unos momentos tendrás tu plan nutricional");
 				return "patient/menu";
+			} 
+			if(r.getAcepted()==false) {
+				model.addAttribute("nutris", personService.getNutritionists());
+				model.addAttribute("title", "Nutricionistas");
+				model.addAttribute("message", "Tu solicitud fue rechazada, elige otro nutricionista");
+				return "patient/nutritionistList";
 			}
 		}
 			
