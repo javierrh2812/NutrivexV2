@@ -41,23 +41,11 @@ public class Person implements Serializable {
 	@Column(name = "nutrionist_spreciality")
 	private String nutrionistSpeciality;
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> Franco
-
-	@Column(name="nutritionist_specialty")
-	private String nutritionistSpecialty;
-	
 	@Column(name="tuition_number")
 	private String tuitionNumber;
 	
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
 	private User user;	
-<<<<<<< HEAD
-=======
-
->>>>>>> Franco
 	
 	//PUBLIC METHODS// 
 	
@@ -69,12 +57,6 @@ public class Person implements Serializable {
 	public void setNutrionistSpeciality(String nutrionistSpeciality) {
 		this.nutrionistSpeciality = nutrionistSpeciality;
 	}
-
-
-<<<<<<< HEAD
-=======
-	
->>>>>>> Franco
 
 	public Person() {
 		super();
@@ -129,13 +111,6 @@ public class Person implements Serializable {
 		this.sex = sex;
 	}
 	
-	public String getNutritionistSpecialty() {
-		return nutritionistSpecialty;
-	}
-
-	public void setNutritionistSpecialty(String nutritionistSpecialty) {
-		this.nutritionistSpecialty = nutritionistSpecialty;
-	}
 
 	public String getTuitionNumber() {
 		return tuitionNumber;
