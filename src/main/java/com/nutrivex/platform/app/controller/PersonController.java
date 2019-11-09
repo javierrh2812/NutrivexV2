@@ -56,7 +56,7 @@ public class PersonController {
 		return "patient/nutritionistsList";
 	}
 	
-<<<<<<< HEAD
+
 	@GetMapping(value="/nutritionist")
 	public String changeToNutritionist() {
 		return "layout/nutritionist";
@@ -67,10 +67,6 @@ public class PersonController {
 		return "layout/patient";
 	}
 	
-=======
-
-
->>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
 	@GetMapping(value="/profileNutritionists")
 	public String toProfilePatient() {
 		return "/profileNutritionist";
@@ -81,12 +77,8 @@ public class PersonController {
 		return "/profilePatient";
 	}
 	
-<<<<<<< HEAD
-	@GetMapping(value="miplan")
-=======
 	
-	@GetMapping(value="/miplan")
->>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
+	@GetMapping(value="miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
 		
 		model.addAttribute("sessionUser", sessionUser);
