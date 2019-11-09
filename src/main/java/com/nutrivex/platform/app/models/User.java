@@ -43,7 +43,7 @@ public class User implements Serializable{
 	private CreditCard creditCard;
 	
 	/*PUBLIC METHODS */
-	
+	@Override
 	public String toString() {
 		return person.getFirstName()+" "+person.getLastName();
 	}

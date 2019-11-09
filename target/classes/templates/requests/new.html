@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/patient :: head"></head>
+<head th:replace="layout/layout :: head"></head>
 
 <body>
 
-	<header th:replace="layout/patient :: header"></header>
+	<header th:replace="layout/layout :: patientHeader"></header>
 
 	<div class="container py-4">
 
@@ -51,7 +51,6 @@
 	</div>
 	<!-- /.container-fluid -->
 
-	<footer th:replace="layout/patient :: footer"></footer>
-	<p th:replace="layout/patient :: scripts"></p>
+	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>
