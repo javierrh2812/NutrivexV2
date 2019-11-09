@@ -58,7 +58,6 @@ public class PersonController {
 		return "patient/nutritionistsList";
 	}
 	
-<<<<<<< HEAD
 	@GetMapping(value="/nutritionist")
 	public String changeToNutritionist() {
 		return "layout/nutritionist";
@@ -79,11 +78,7 @@ public class PersonController {
 		return "/profilePatient";
 	}
 	
-	
-	@GetMapping(value="/miplan")
-=======
 	@GetMapping(value="miplan")
->>>>>>> 698bd9a54f76aa94bb17159f4c41efa80e2fe2ab
 	public String plan(@RequestParam Long id_pat, Model model){
 		model.addAttribute("sessionUser", sessionUser);
 		Request r = requestService.findRequestByPatientId(id_pat);
