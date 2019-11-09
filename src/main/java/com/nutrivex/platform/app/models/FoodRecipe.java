@@ -15,8 +15,6 @@ import javax.persistence.Table;
 @Table(name="foods_recipes")
 public class FoodRecipe implements Serializable{
 
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -37,6 +37,7 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
+
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 	
@@ -45,9 +46,8 @@ public class Person implements Serializable {
 	
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
 	private User user;	
-	
-	//PUBLIC METHODS// 
-	
+
+
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
