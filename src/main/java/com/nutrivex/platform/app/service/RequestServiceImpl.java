@@ -50,7 +50,7 @@ public class RequestServiceImpl implements RequestService{
 	}
 	
 	@Override
-	public Request findRequestByNutritionistId(Long id_nut) {
+	public Collection<Request> findRequestByNutritionistId(Long id_nut) {
 		return requestRepository.findRequestByNutritionist(id_nut);
 	}
 	

@@ -18,6 +18,7 @@ public class NutritionPlanController {
 		return "/plannutritionList";
 	}
 
+	/*
 	@GetMapping(value="/nutrition_plans")
 	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
 		try {
@@ -27,4 +28,5 @@ public class NutritionPlanController {
 		}
 		return "requests/list";
 	}
+	*/
 }

@@ -29,7 +29,7 @@ public class NutritionPlanServiceImpl implements NutritionPlanService {
 	}
 
 	@Override
-	public NutritionPlan findNutrionPlanByPatientId(Long id_pat) {
-		return npr.buscarPlanNutricionalDePaciente(id_pat);
+	public NutritionPlan findNutrionPlanByPatientId() {
+		return npr.buscarPlanNutricionalDePaciente();
 	}
 }

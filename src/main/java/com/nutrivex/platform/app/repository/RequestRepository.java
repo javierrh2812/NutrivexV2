@@ -5,10 +5,8 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-<<<<<<< HEAD
 import org.springframework.data.repository.query.Param;
-=======
->>>>>>> Cristina
+
 import org.springframework.stereotype.Repository;
 
 import com.nutrivex.platform.app.models.Request;
@@ -23,7 +21,7 @@ public interface RequestRepository extends JpaRepository<Request, Long>{
 	public Request buscarSolicitudDePaciente(Long id_pat);
 	
 	@Query("select r from Request r where r.nutritionist.id=?1")
-	public Request findRequestByNutritionist(Long id_nut);
+	public Collection<Request> findRequestByNutritionist(Long id_nut);
 	
 	@Modifying
 	@Query("update Request r set r.acepted = 0 where r.patient.id= :id")
