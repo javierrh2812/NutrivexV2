@@ -72,24 +72,23 @@ public class RequestController {
 		return "patient/menu";
 	}
 
-	@GetMapping(value = "/nutritionistRequests")
+	@GetMapping("nutritionistRequests")
 	public String listRequests(@RequestParam Long id_nut, Model model) {
-
-		model.addAttribute("sessionUser", sessionUser);
+		model.addAttribute("sessionUser", personService.findPerson(id_nut));		
 
 		Request r = requestService.findRequestByNutritionistId(id_nut);
 		try {
 			if (r == null) {
 				model.addAttribute("title", "Solicitudes");
 				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
-				return "/nutritionist/menu";
+				return "nutritionist/menu";
 			} else {
 				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
-				return "/requests/list";
+				return "requests/list";
 			}
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
-			return "/nutritionist/menu";
+			return "nutritionist/menu";
 		}
 	}
 
