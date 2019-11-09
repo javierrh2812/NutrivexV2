@@ -28,8 +28,13 @@ public class Person implements Serializable {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name = "weight")
 	private Float weight;
+	
+	@Column(name = "height")
 	private Float height;
+	
+	@Column(name = "sex")
 	private String sex;
 	
 	@Column(name="nutritionist_specialty")

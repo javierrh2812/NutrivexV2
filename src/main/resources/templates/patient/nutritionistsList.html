@@ -35,9 +35,9 @@
 						<tr th:each="nutri:${nutris}">
 							<td th:text="${nutri.firstName}"></td>
 							<td th:text="${nutri.nutritionistSpecialty}"></td>
-							<td><a class="btn btn-success btn-sm"
-								th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat='+${sessionUser.id}}"
+							<td><a class="btn btn-success btn-sm" th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat='+${sessionUser.id}}"
 								th:text="'Enviar solicitud'"></a></td>
+		
 						</tr>
 					<tbody>
 

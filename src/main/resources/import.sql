@@ -22,3 +22,4 @@ INSERT INTO users (id, email, password, person_id, role_id) VALUES (6, "jramos@c
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (7, "ahurtado@correo.com","1234",7,2);
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (8, "jhuarachi@correo.com","1234",8,2);
 
+

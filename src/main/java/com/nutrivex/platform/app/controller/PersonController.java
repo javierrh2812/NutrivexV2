@@ -34,13 +34,11 @@ public class PersonController {
 		
 		if (sessionUser.getUser().getRole().getId() == 1) return "nutritionist/menu";
 		else return "patient/menu";
-		
-		
-		
+			
 		
 	}
 	
-	@GetMapping(value="patient/nutritionists")
+	@GetMapping(value="/patient/nutritionists")
 	public String listNutritionists(@RequestParam(required = false) String str, Model model){
 		try {
 			if(str == null) {
@@ -58,8 +56,22 @@ public class PersonController {
 		return "patient/nutritionistsList";
 	}
 	
-	@GetMapping(value="miplan")
+
+
+	@GetMapping(value="/profileNutritionists")
+	public String toProfilePatient() {
+		return "/profileNutritionist";
+	}
+	
+	@GetMapping(value="/profilePatients")
+	public String toProfileNutritionist() {
+		return "/profilePatient";
+	}
+	
+	
+	@GetMapping(value="/miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
+		
 		model.addAttribute("sessionUser", sessionUser);
 		Request r = requestService.findRequestByPatientId(id_pat);
 		try {
@@ -72,6 +84,11 @@ public class PersonController {
 			if(r.getAcepted()==null) {
 				model.addAttribute("title", "Inicio");
 				model.addAttribute("message", "Tu solicitud aún no ha sido respondida");
+				return "patient/menu";
+			}
+			if(r.getAcepted()==true) {
+				model.addAttribute("title", "Inicio");
+				model.addAttribute("message", "En unos momentos tendrás tu plan nutricional");
 				return "patient/menu";
 			}
 		}

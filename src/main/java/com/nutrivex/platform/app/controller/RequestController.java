@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,6 +58,41 @@ public class RequestController {
 		model.addAttribute("sessionUser", sessionUser);
 
 		return "requests/new";
+	}
+	
+	
+	@GetMapping(value="/requested")
+	public String listRequests(@RequestParam Long id_nut, Model model) {
+		Request r = requestService.findRequestByNutritionistId(id_nut);
+		try {
+			if(r == null) {
+				model.addAttribute("title", "Solicitudes");
+				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
+				return "/indexNutritionist";
+			} 
+			else {
+				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
+				return "/requestsList";
+			}
+		} 
+		catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "/indexNutritionist";
+		}
+	}
+	
+	@GetMapping(value="/stateAccepted")
+	@Transactional
+	public String stateAccept(@RequestParam Long id_nut, @RequestParam Long id_pat, Model model) {
+			requestService.acceptingRequest(id_pat);
+			return "/requestsList";
+	}
+	
+	@GetMapping(value="/stateRejected")
+	@Transactional
+	public String stateReject(@RequestParam Long id_nut, @RequestParam Long id_pat, Model model) {
+			requestService.rejectingRequest(id_pat);
+			return "/requestsList";
 	}
 
 	@PostMapping(value = "/save")
