@@ -72,10 +72,10 @@ public class RequestController {
 		return "patient/menu";
 	}
 
-	@GetMapping("nutritionistRequests")
+	@GetMapping("requests")
 	public String listRequests(@RequestParam Long id_nut, Model model) {
+		
 		model.addAttribute("sessionUser", personService.findPerson(id_nut));		
-
 		Request r = requestService.findRequestByNutritionistId(id_nut);
 		try {
 			if (r == null) {
