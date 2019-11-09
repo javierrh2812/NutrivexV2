@@ -5,7 +5,10 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+<<<<<<< HEAD
 import org.springframework.data.repository.query.Param;
+=======
+>>>>>>> Cristina
 import org.springframework.stereotype.Repository;
 
 import com.nutrivex.platform.app.models.Request;

@@ -6,4 +6,5 @@ public interface NutritionPlanService {
 	public abstract int createNutritionPlan(NutritionPlan np);
 	public abstract int updateNutritionPlan(Long id, NutritionPlan np);
 	public abstract int deleteNutritionPlan(Long id);
+	public abstract NutritionPlan findNutrionPlanByPatientId(Long id_pat);
 }

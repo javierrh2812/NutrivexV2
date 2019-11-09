@@ -37,10 +37,9 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
-	
+
 	@Column(name="tuition_number")
 	private String tuitionNumber;
 	
@@ -105,13 +104,6 @@ public class Person implements Serializable {
 		this.sex = sex;
 	}
 	
-	public String getNutritionistSpecialty() {
-		return nutritionistSpecialty;
-	}
-
-	public void setNutritionistSpecialty(String nutritionistSpecialty) {
-		this.nutritionistSpecialty = nutritionistSpecialty;
-	}
 
 	public String getTuitionNumber() {
 		return tuitionNumber;

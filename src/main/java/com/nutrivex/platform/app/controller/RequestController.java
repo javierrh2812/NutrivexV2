@@ -109,5 +109,13 @@ public class RequestController {
 		requestService.rejectingRequest(id_pat);
 		return "requests/list";
 	}
-
+	@GetMapping(value="/requests")
+	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
+		try {
+			model.addAttribute("Requests", requestService.getRequestsByNutritionistId(id_nut));
+		}catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "requests/list";
+	}
 }
