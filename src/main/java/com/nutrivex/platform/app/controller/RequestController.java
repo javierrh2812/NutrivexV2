@@ -72,7 +72,7 @@ public class RequestController {
 		return "patient/menu";
 	}
 
-	@GetMapping("requests")
+	@GetMapping("/list")
 	public String listRequests(@RequestParam Long id_nut, Model model) {
 		
 		model.addAttribute("sessionUser", personService.findPerson(id_nut));		
@@ -84,13 +84,15 @@ public class RequestController {
 				return "nutritionist/menu";
 			} else {
 				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
-				return "requests/list";
+				return "/requests/list";
 			}
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 			return "nutritionist/menu";
 		}
 	}
+	
+	
 
 	@GetMapping(value = "/stateAccepted")
 	@Transactional
