@@ -41,6 +41,10 @@ public class Person implements Serializable {
 	@Column(name = "nutrionist_spreciality")
 	private String nutrionistSpeciality;
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> Franco
 
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
@@ -50,6 +54,10 @@ public class Person implements Serializable {
 	
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
 	private User user;	
+<<<<<<< HEAD
+=======
+
+>>>>>>> Franco
 	
 	//PUBLIC METHODS// 
 	
@@ -63,6 +71,10 @@ public class Person implements Serializable {
 	}
 
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> Franco
 
 	public Person() {
 		super();
