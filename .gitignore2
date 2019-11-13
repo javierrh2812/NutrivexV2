@@ -4,6 +4,8 @@
 
 
 ### Eclipse ###
+*application.properties
+*.idea
 .metadata
 bin/
 tmp/
@@ -109,5 +111,5 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
-
+application.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse
