@@ -17,10 +17,16 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet" />
-	
 
 <!-- Custom styles for this template-->
 <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template-->
+<link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
 
@@ -34,15 +40,20 @@
 
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
+
 					<li class="nav-item"><a class="nav-link" th:href="@{/miplan(id_pat=5)}">Solicitar Plan</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/NutritionalPlan}">Mi Plan</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/calendarFull}">Progreso</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/miplan(id_pat=5)}">Mi Plan</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{#}">Progreso</a></li>
 				</ul>
 			</div>
 
 			<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 				<li class="nav-item"><a class="nav-link" th:href="@{#}">Nombre</a></li>
 				<li class="nav-item"><a class="nav-link" th:href="@{#}">Cerrar Sesión</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/profilePatients}">Mi Perfil</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/nutritionist}">Cerrar Sesión</a></li>
 			</ul>
 
 		</nav>
@@ -92,7 +103,6 @@
 
 		<!-- Custom scripts for all pages-->
 		<script src="/js/sb-admin-2.min.js"></script>
-
 	</p>
 </body>
 

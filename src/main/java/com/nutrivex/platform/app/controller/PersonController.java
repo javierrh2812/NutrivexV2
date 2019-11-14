@@ -62,6 +62,20 @@ public class PersonController {
 	}
 	
 
+	@GetMapping(value="/nutritionist")
+	public String changeToNutritionist() {
+		return "layout/nutritionist";
+	}
+	
+	@GetMapping(value="/patient")
+	public String changeToPatient() {
+		return "layout/patient";
+	}
+	
+	@GetMapping(value="/profileNutritionists")
+	public String toProfilePatient() {
+		return "/profileNutritionist";
+	}
 
 	@GetMapping(value="/profile")
 	public String toProfilePatient(Model model) {
@@ -71,6 +85,7 @@ public class PersonController {
 	}
 	
 	
+
 	@GetMapping(value="/miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
 		
