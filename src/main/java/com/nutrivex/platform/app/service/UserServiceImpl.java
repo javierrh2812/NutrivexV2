@@ -1,8 +1,5 @@
 package com.nutrivex.platform.app.service;
 
-
-
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +17,7 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public User findUser(Long id) {
 		// TODO Auto-generated method stub

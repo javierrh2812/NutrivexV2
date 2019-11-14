@@ -8,6 +8,5 @@ import com.nutrivex.platform.app.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 	 
-	
 	public User findByUsername(String username);
 }
