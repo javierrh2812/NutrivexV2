@@ -42,12 +42,11 @@ INSERT INTO users (id, email, password, person_id, role_id) VALUES (7, "ahurtado
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (8, "jhuarachi@correo.com","1234",8,2);
 
 
-INSERT INTO foods (name, type, portion, calories, carbs, protein) VALUES ('Tilapia','Pescado', 'tres cuartos', 11.0, 20.5, 34.7)
-INSERT INTO foods (name, type, portion, calories, carbs, protein) VALUES ('Arroz','Cereal', 'mitad', 11.0, 50.3, 3.9)
+INSERT INTO foods (name, type, portion, calories, carbs, proteins) VALUES ('Tilapia','Pescado', 'tres cuartos', 11.0, 20.5, 34.7)
+INSERT INTO foods (name, type, portion, calories, carbs, proteins) VALUES ('Arroz','Cereal', 'mitad', 14.0, 50.3, 3.9)
 
 INSERT INTO recipes (name, description) VALUES ('Pescado a la plancha', 'Comer de acuerdo a lo pedido')
 INSERT INTO recipes (name, description) VALUES ('Escabeche de pescado', 'Una solucion para un futuro sano')
 
--- INSERT INTO foods_recipes (food_id) VALUES (1)
--- INSERT INTO foods_recipes (food_id) VALUES (2)
+-- INSERT INTO nutrition_plans (food_quantity_per_day, target_weight, total_time) VALUES (12, )
 

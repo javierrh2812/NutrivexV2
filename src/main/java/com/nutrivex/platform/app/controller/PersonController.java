@@ -68,6 +68,7 @@ public class PersonController {
 		return "layout/patient";
 	}
 	
+<<<<<<< HEAD
 	@GetMapping(value="/profileNutritionists")
 	public String toProfilePatient() {
 		return "/profileNutritionist";
@@ -85,6 +86,15 @@ public class PersonController {
 	
 	
 	@GetMapping(value="miplan")
+=======
+	@GetMapping(value="/calendarFull")
+	public String calendar() {
+		return "/calendar";
+	}
+	
+	
+	@GetMapping(value="/miplan")
+>>>>>>> origin/Franco
 	public String plan(@RequestParam Long id_pat, Model model){
 		
 		model.addAttribute("sessionUser", sessionUser);
