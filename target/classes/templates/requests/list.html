@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+
+	<header th:replace="layout/layout :: nutritionistHeader"></header>
+
+	<div class="container py-4">
+		<h3 th:text="${message}"></h3>
+		<div class="card bg-light">
+		
+			<div class="card-header" th:text="${title}" align="center"></div>
+
+			<div class="card-body">
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Mensaje</th>
+							<th>Fecha</th>
+							<th>Estado</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="reque:${reques}">
+							<td th:text="${reque.patient.toString()}"></td>
+							<td th:text="${reque.message}"></td>
+							<td th:text="${reque.date}"></td>
+							<td><a class="btn btn-success btn-sm"
+								th:href="@{/requests/stateAccepted(id_nut=${reque.nutritionist.id}, id_pat=${reque.patient.id})}"
+								th:text="'Aceptar'"></a>
+								<a class="btn btn-danger btn-sm"
+								th:href="@{/requests/stateRejected(id_nut=${reque.nutritionist.id}, id_pat=${reque.patient.id})}"
+								th:text="'Declinar'"></a></td> 
+						</tr>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

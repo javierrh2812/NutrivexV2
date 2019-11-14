@@ -28,4 +28,8 @@ public class NutritionPlanServiceImpl implements NutritionPlanService {
 		return 0;
 	}
 
+	@Override
+	public NutritionPlan findNutrionPlanByPatientId() {
+		return npr.buscarPlanNutricionalDePaciente();
+	}
 }

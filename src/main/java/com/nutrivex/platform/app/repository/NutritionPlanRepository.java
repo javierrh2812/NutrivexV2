@@ -12,4 +12,7 @@ public interface NutritionPlanRepository extends JpaRepository<NutritionPlan, Lo
 	@Query("select np from NutritionPlan np Where np.id=1")
 	public Collection<NutritionPlan> listarPlanesNutricionales();
 	
+
+	@Query("select np from NutritionPlan np where np.id=1")
+	public NutritionPlan buscarPlanNutricionalDePaciente();
 }

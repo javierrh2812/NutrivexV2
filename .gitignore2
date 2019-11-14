@@ -1,10 +1,15 @@
 # Created by https://www.gitignore.io/api/java,maven,eclipse
 # Edit at https://www.gitignore.io/?templates=java,maven,eclipse
 
+
+
 ### Eclipse ###
+*application.properties
+*.idea
 .metadata
 bin/
 tmp/
+*.iml
 *.tmp
 *.bak
 *.swp
@@ -107,5 +112,5 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
-
+application.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse
