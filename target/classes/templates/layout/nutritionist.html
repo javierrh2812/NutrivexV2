@@ -34,14 +34,23 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" th:href="@{#}">Mis Pacientes</a></li>
+
 					<li class="nav-item"><a class="nav-link" th:href="@{requests/requested(id_nut=1)}">Solicitudes</a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/solicitudes(id_nut=1)}">Solicitudes</a></li>
+
 					<li class="nav-item"><a class="nav-link" th:href="@{#}">Crear Template</a></li>
 				</ul>
 			</div>
 
 			<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+
 				<li class="nav-item"><a class="nav-link" th:href="@{/profileNutritionists}">Mi Perfil</a></li>
 				<li class="nav-item"><a class="nav-link" th:href="@{/patient}">Cerrar Sesión</a></li>
+
+				<li class="nav-item"><a class="nav-link" th:text="@{#}" th:href="@{#}">Nombre</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{#}">Cerrar Sesión</a></li>
+
 			</ul>
 
 		</nav>

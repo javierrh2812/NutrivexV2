@@ -50,3 +50,12 @@ INSERT INTO users (id, email, password, person_id, role_id) VALUES (8, "jhuarach
 
 >>>>>>> 820a6197b3456f3351987177bb71fab138049fb4
 
+INSERT INTO foods (name, type, portion, calories, carbs, protein) VALUES ('Tilapia','Pescado', 'tres cuartos', 11.0, 20.5, 34.7)
+INSERT INTO foods (name, type, portion, calories, carbs, protein) VALUES ('Arroz','Cereal', 'mitad', 11.0, 50.3, 3.9)
+
+INSERT INTO recipes (name, description) VALUES ('Pescado a la plancha', 'Comer de acuerdo a lo pedido')
+INSERT INTO recipes (name, description) VALUES ('Escabeche de pescado', 'Una solucion para un futuro sano')
+
+-- INSERT INTO foods_recipes (food_id) VALUES (1)
+-- INSERT INTO foods_recipes (food_id) VALUES (2)
+

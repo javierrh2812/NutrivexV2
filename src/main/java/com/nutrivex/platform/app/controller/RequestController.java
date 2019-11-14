@@ -76,9 +76,8 @@ public class RequestController {
 	public String listRequests(@RequestParam Long id_nut, Model model) {
 		
 		model.addAttribute("sessionUser", personService.findPerson(id_nut));		
-		Request r = requestService.findRequestByNutritionistId(id_nut);
 		try {
-			if (r == null) {
+			if (requestService.getRequestsByNutritionistId(id_nut) == null) {
 				model.addAttribute("title", "Solicitudes");
 				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
 				return "nutritionist/menu";
@@ -109,5 +108,13 @@ public class RequestController {
 		requestService.rejectingRequest(id_pat);
 		return "requests/list";
 	}
-
+	@GetMapping(value="/requests")
+	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
+		try {
+			model.addAttribute("Requests", requestService.getRequestsByNutritionistId(id_nut));
+		}catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "requests/list";
+	}
 }

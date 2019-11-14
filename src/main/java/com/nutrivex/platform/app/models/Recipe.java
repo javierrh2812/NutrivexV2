@@ -18,39 +18,6 @@ import javax.validation.constraints.NotEmpty;
 @Table(name="recipes")
 public class Recipe implements Serializable{
 
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public List<FoodRecipe> getItems() {
-		return items;
-	}
-
-	public void setItems(List<FoodRecipe> items) {
-		this.items = items;
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -65,9 +32,71 @@ public class Recipe implements Serializable{
 	@JoinColumn(name = "recipe_id")
 	private List<FoodRecipe> items;
 	
-	/**
-	 * 
-	 */
+	@OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+	private List<NutritionPlanRecipe> nutritionPlanRecipe;
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
+	public List<FoodRecipe> getItems() {
+		return items;
+	}
+
+
+
+	public void setItems(List<FoodRecipe> items) {
+		this.items = items;
+	}
+
+
+
+	public List<NutritionPlanRecipe> getNutritionPlanRecipe() {
+		return nutritionPlanRecipe;
+	}
+
+
+
+	public void setNutritionPlanRecipe(List<NutritionPlanRecipe> nutritionPlanRecipe) {
+		this.nutritionPlanRecipe = nutritionPlanRecipe;
+	}
+
+
+
 	private static final long serialVersionUID = 1L;
 	
 	
