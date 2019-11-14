@@ -57,7 +57,7 @@ public class PersonController {
 	}
 	
 
-<<<<<<< HEAD
+
 	@GetMapping(value="/nutritionist")
 	public String changeToNutritionist() {
 		return "layout/nutritionist";
@@ -71,14 +71,14 @@ public class PersonController {
 	@GetMapping(value="/profileNutritionists")
 	public String toProfilePatient() {
 		return "/profileNutritionist";
-=======
-
+	}
+	
+	
 	@GetMapping(value="/profile")
 	public String toProfilePatient(Model model) {
 		model.addAttribute("sessionUser", sessionUser);
 		if (sessionUser.getUser().getRole().getId() == 1) return "/nutritionist/profile";
 		return "/patient/profile";
->>>>>>> fe25ea9fc9b69d03dd61f2ab84ada814c484af66
 	}
 	
 	
