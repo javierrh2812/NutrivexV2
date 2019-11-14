@@ -84,7 +84,7 @@
                                                 <label>Especialidad</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p th:if="${sessionUser!=null}"th:text="${sessionUser.toString()}"></p>
+                                                <p th:if="${sessionUser.getNutritionistSpecialty()==null}" th:text="Nulo"></p>
                                             </div>
                                         </div>
                             </div>
