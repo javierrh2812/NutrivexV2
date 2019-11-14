@@ -72,20 +72,7 @@ public class Recipe implements Serializable{
 		this.description = description;
 	}
 
-<<<<<<< HEAD
 
-
-	public List<FoodRecipe> getItems() {
-		return items;
-	}
-
-
-
-	public void setItems(List<FoodRecipe> items) {
-		this.items = items;
-	}
-=======
->>>>>>> origin/Franco
 
 
 
