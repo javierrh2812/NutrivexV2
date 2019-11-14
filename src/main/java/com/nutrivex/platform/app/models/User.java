@@ -2,6 +2,7 @@ package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,14 +22,18 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
+	@Column(length = 30, unique = true)
+	private String username;
+	
 	//@NotEmpty
-	//private String username;
+	//private String email;
 	
 	@NotEmpty
-	private String email;
-	
-	@NotEmpty
+	@Column(length = 60)
 	private String password;
+	
+	private Boolean enabled;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="person_id")
@@ -64,13 +69,13 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public String getEmail() {
+	/*public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}*/
 
 	public Person getPerson() {
 		return person;
@@ -94,6 +99,18 @@ public class User implements Serializable{
 
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
+	}
+
+
+
+
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 
