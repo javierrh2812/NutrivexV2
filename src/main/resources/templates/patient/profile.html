@@ -65,26 +65,26 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label>Peso</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Telefono</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p th:if="${sessionUser.getWeight()!=null}" th:text="${sessionUser.getWeight().toString()}"></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Especialidad</label>
+                                                <label>Altura</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p th:if="${sessionUser.getNutritionistSpecialty()==null}" th:text="Nulo"></p>
+                                                <p th:if="${sessionUser.getHeight()!=null}" th:text="${sessionUser.getHeight().toString()}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Sexo</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p th:if="${sessionUser.getSex()!=null}" th:text="${sessionUser.getSex().toString()}"></p>
                                             </div>
                                         </div>
                             </div>

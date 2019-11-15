@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout/layout :: head">
+<head th:replace="layout/patient :: head">
 </head>
 
 <body id="page-top">
 
-	<header th:replace="layout/layout :: patientHeader"></header>
+	<header th:replace="layout/patient :: header"></header>
 	<div class="container py-4">
 		
 		
@@ -60,31 +60,31 @@
                                                 <label>Nombre</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p th:if="${sessionUser!=null}"th:text="${sessionUser.toString()}"></p>
+                                                <p>Kshiti Ghelani</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Peso</label>
+                                                <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p th:if="${sessionUser.getWeight()!=null}" th:text="${sessionUser.getWeight().toString()}"></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Altura</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p th:if="${sessionUser.getHeight()!=null}" th:text="${sessionUser.getHeight().toString()}"></p>
+                                                <p>kshitighelani@gmail.com</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Sexo</label>
+                                                <label>Telefono</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p th:if="${sessionUser.getSex()!=null}" th:text="${sessionUser.getSex().toString()}"></p>
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profesion</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
                                             </div>
                                         </div>
                             </div>
@@ -144,9 +144,10 @@
 		
 		
 	</div>
-	
-	<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/patient :: footer"></footer>
 
+	<!-- scripts -->
+	<p th:replace="layout/patient :: scripts"></p>
 
 </body>
 </html>
