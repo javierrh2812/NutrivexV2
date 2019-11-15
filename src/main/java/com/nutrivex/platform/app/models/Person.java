@@ -37,12 +37,6 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-	public String getNutritionistSpecialty() {
-		return nutritionistSpecialty;
-	}
-	public void setNutritionistSpecialty(String nutritionistSpecialty) {
-		this.nutritionistSpecialty = nutritionistSpecialty;
-	}
 
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
@@ -53,7 +47,6 @@ public class Person implements Serializable {
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
 	private User user;	
 
-
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,6 +56,12 @@ public class Person implements Serializable {
 		return firstName + " " + lastName;
 	}
 	
+	public String getNutritionistSpecialty() {
+		return nutritionistSpecialty;
+	}
+	public void setNutritionistSpecialty(String nutritionistSpecialty) {
+		this.nutritionistSpecialty = nutritionistSpecialty;
+	}
 	public Long getId() {
 		return id;
 	}

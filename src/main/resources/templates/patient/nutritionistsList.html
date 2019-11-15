@@ -14,7 +14,7 @@
 			
 				<nav class="navbar navbar-light">
 					<h3 class="card-title" th:text="${title}"></h3>
-					<form th:action="@{#}" class="form-inline" method="post">
+					<form class="form-inline">
 						<input class="form-control mr-sm-2" type="search" placeholder="Nutricionista">
 						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 					</form>
@@ -35,7 +35,7 @@
 						<tr th:each="nutri:${nutris}">
 							<td th:text="${nutri.toString()}"></td>
 							<td th:text="${nutri.nutritionistSpecialty}"></td>
-							<td><a class="btn btn-success btn-sm" th:href="@{'/requests/new/?id_nutri=' + ${nutri.id}+'&id_pat='+${sessionUser.id}}"
+							<td><a class="btn btn-success btn-sm" th:href="@{/request/new(id_nutri=${nutri.id}, id_pat=${sessionUser.id})}"
 								th:text="'Enviar solicitud'"></a></td>
 		
 						</tr>
