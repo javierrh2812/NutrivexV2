@@ -29,8 +29,8 @@ public class Users implements Serializable{
 	@Column(length = 30, unique = true)
 	private String username;
 	
-	//@NotEmpty
-	//private String email;
+	@NotEmpty
+	private String email;
 	
 	@NotEmpty
 	@Column(length = 60)
@@ -42,9 +42,9 @@ public class Users implements Serializable{
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
-	@JoinColumn(name="user_id")
-	private List<Role> role;
+	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
+	@JoinColumn(name="role_id")
+	private Role role;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
@@ -97,11 +97,13 @@ public class Users implements Serializable{
 		this.person = person;
 	}
 
-	public List<Role> getRole() {
+	
+
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(List<Role> role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
@@ -112,9 +114,6 @@ public class Users implements Serializable{
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
-
-
-
 
 
 	public Boolean getEnabled() {

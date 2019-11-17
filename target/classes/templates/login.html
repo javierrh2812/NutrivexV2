@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="layout/layout :: head">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title>NutriVex</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="NutriVex - Cuidamos tu salud" />
+<meta name="description"
+	content="NutriVex es algo" />
+<meta name="author" content="Henry Antonio Mendoza Puerta">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
 </head>
+<body>
 
-<body id="page-top">
+	<div class="container">
+		<div class="card border-primary text-center">
+			<div class="card-header text-white bg-primary">Acceso A NutriVex</div>
+			<div class="card-body">
+				<form th:action="@{/login}" method="post">
 
-	<header th:replace="layout/layout :: loginHeader"></header>
-	
-	<div class="container py-4">
-	
-		<div class="modal-dialog text-center">
-		
-			<div class="col-sm-8 main-section">
-			
-				<div class="modal-content">
-				
-					<div class="col-12 user-img">
-						<img th:src="@{/images/user.png}" /> 
+					<div class="form-group">
+						<input type="text" name="username" id="username"
+							class="form-control" placeholder="usuario" autofocus required />
 					</div>
-					
-					<form class="col-12">
-					
-						<div class="form-group" id="user-group">
-							<input type="text" class="form-control"
-								placeholder="Email" name="email" />
-						</div>
-						
-						<div class="form-group" id="contrasena-group">
-							<input type="password" class="form-control"
-								placeholder="Contrasena" name="password" />
-						</div>
-						
-						<button type="submit" class="btn btn-primary">
-							<i class="fas fa-sign-in-alt"></i> Ingresar
-						</button>
-					</form>
-					<div class="col-12 forgot">
-						<a href="#"></a>
+
+					<div class="form-group">
+						<input type="password" name="password" id="password"
+							class="form-control" placeholder="clave" required />
 					</div>
-					<div th:if="${param.error}" class="alert alert-danger" role="alert">
-						Invalid username and password.
-					</div >
-						
-					<div th:if="${param.logout}" class="alert alert-success" role="alert">
-						You have been logged out.
+
+					<div class="form-group">
+						<input type="submit" class="btn btn-lg btn-primary btn-block"
+							value="Ingresar" />
 					</div>
-				</div>
+				</form>
+
 			</div>
 		</div>
 
+		<div class="alert alert-success" th:if="${success != null}"
+			th:text="${success}"></div>
+		<div class="alert alert-danger" th:if="${error != null}"
+			th:text="${error}"></div>
+		<div class="alert alert-info" th:if="${info != null}"
+			th:text="${info}"></div>
 	</div>
-	<footer th:replace="layout/layout :: footer"></footer>
+
+
 
 </body>
-
 </html>

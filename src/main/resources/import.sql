@@ -1,7 +1,7 @@
 /* Populate tables */
-INSERT INTO roles (name) VALUES ("NUTRITIONIST");
-INSERT INTO roles (name) VALUES ("PATIENT");
-INSERT INTO roles (name) VALUES ("ADMIN");
+INSERT INTO authorities (authority) VALUES ("NUTRITIONIST");
+INSERT INTO authorities (authority) VALUES ("PATIENT");
+INSERT INTO authorities (authority) VALUES ("ADMIN");
 
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Ana', 'Herrera', 'Deportiva', '85210');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Lucio', 'Ramos', 'Perinatal', '52822');

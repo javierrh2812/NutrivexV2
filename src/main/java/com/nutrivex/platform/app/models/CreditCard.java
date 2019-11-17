@@ -27,9 +27,6 @@ public class CreditCard implements Serializable{
 	
 	private Long securityCode;
 	
-	
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -105,12 +102,6 @@ public class CreditCard implements Serializable{
 		this.securityCode = securityCode;
 	}
 
-
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 }
