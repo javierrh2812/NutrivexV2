@@ -21,7 +21,7 @@ public class NutritionPlanController {
 	@GetMapping(value="/nutrition_plans")
 	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
 		try {
-			model.addAttribute("nutriotionalPlans", nps.getNutritionPlanByPatientId(id_nut));
+			//model.addAttribute("nutriotionalPlans", nps.getNutritionPlanByPatientId(id_nut));
 		}catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
