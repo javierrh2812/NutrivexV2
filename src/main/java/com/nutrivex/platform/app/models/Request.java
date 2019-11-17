@@ -24,11 +24,11 @@ public class Request implements Serializable{
 	
 	@OneToOne
 	@JoinColumn(name="patient_id")
-	private User patient;
+	private Users patient;
 	
 	@OneToOne
 	@JoinColumn(name="nutritionist_id")
-	private User nutritionist;
+	private Users nutritionist;
 	
 	public Request() {
 		super();
@@ -51,16 +51,16 @@ public class Request implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public User getPatient() {
+	public Users getPatient() {
 		return patient;
 	}
-	public void setPatient(User patient) {
+	public void setPatient(Users patient) {
 		this.patient = patient;
 	}
-	public User getNutritionist() {
+	public Users getNutritionist() {
 		return nutritionist;
 	}
-	public void setNutritionist(User nutritionist) {
+	public void setNutritionist(Users nutritionist) {
 		this.nutritionist = nutritionist;
 	}
 

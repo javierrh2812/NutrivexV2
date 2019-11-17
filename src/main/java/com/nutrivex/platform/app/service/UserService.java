@@ -1,9 +1,9 @@
 package com.nutrivex.platform.app.service;
 
-import com.nutrivex.platform.app.models.User;
+import com.nutrivex.platform.app.models.Users;
 
 public interface UserService {
-	public abstract User findUser(String email);
-	public abstract User findUser(Long id);
+	public abstract Users findUser(String email);
+	public abstract Users findUser(Long id);
 
 }

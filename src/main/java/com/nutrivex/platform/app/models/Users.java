@@ -1,7 +1,9 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -16,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="users")
-public class User implements Serializable{
+public class Users implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,9 +42,9 @@ public class User implements Serializable{
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@OneToOne(fetch=FetchType.LAZY) 
-	@JoinColumn(name="role_id")
-	private Role role;
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
+	@JoinColumn(name="user_id")
+	private List<Role> role;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
@@ -59,6 +62,15 @@ public class User implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -85,11 +97,11 @@ public class User implements Serializable{
 		this.person = person;
 	}
 
-	public Role getRole() {
+	public List<Role> getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(List<Role> role) {
 		this.role = role;
 	}
 

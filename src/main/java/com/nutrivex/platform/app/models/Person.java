@@ -51,7 +51,7 @@ public class Person implements Serializable {
 	private String tuitionNumber;
 	
 	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
-	private User user;	
+	private Users user;	
 
 
 	public Person() {
@@ -120,11 +120,11 @@ public class Person implements Serializable {
 		this.tuitionNumber = tuitionNumber;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

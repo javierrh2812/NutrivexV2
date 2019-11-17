@@ -1,25 +1,26 @@
-package com.nutrivex.platform.app.service;
+package com.nutrivex.platform.app.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nutrivex.platform.app.models.User;
-import com.nutrivex.platform.app.repository.UserRepository;
+import com.nutrivex.platform.app.models.Users;
+import com.nutrivex.platform.app.repository.UsersRepository;
+import com.nutrivex.platform.app.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserRepository userRepository;
+	UsersRepository userRepository;
 
 	@Override
-	public User findUser(String email) {
+	public Users findUser(String email) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public User findUser(Long id) {
+	public Users findUser(Long id) {
 		// TODO Auto-generated method stub
 		return userRepository.findById(id).orElse(null);
 	}

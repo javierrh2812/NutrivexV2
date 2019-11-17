@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nutrivex.platform.app.models.Person;
 import com.nutrivex.platform.app.models.Request;
-import com.nutrivex.platform.app.models.User;
+import com.nutrivex.platform.app.models.Users;
 import com.nutrivex.platform.app.service.PersonService;
 import com.nutrivex.platform.app.service.RequestService;
 
@@ -39,8 +39,8 @@ public class RequestController {
 			RedirectAttributes flash) {
 
 		sessionUser = personService.findPerson(id_pat);
-		User nutri = personService.findPerson(id_nutri).getUser();
-		User pat = personService.findPerson(id_pat).getUser();
+		Users nutri = personService.findPerson(id_nutri).getUser();
+		Users pat = personService.findPerson(id_pat).getUser();
 
 		if (nutri == null || pat == null) {
 			flash.addFlashAttribute("error", "El nutricionista o el paciente no existen en la BBDD");

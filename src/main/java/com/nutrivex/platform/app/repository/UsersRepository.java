@@ -3,10 +3,10 @@ package com.nutrivex.platform.app.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nutrivex.platform.app.models.User;
+import com.nutrivex.platform.app.models.Users;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UsersRepository extends JpaRepository<Users, Long>{
 	 
-	public User findByUsername(String username);
+	public Users findByUsername(String username);
 }

@@ -1,9 +1,10 @@
-package com.nutrivex.platform.app.service;
+package com.nutrivex.platform.app.service.impl;
 
 import org.springframework.stereotype.Service;
 
 import com.nutrivex.platform.app.models.NutritionPlan;
 import com.nutrivex.platform.app.repository.NutritionPlanRepository;
+import com.nutrivex.platform.app.service.NutritionPlanService;
 
 @Service
 public class NutritionPlanServiceImpl implements NutritionPlanService {

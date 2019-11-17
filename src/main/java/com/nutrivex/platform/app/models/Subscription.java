@@ -31,7 +31,7 @@ public class Subscription implements Serializable {
 	
 	@OneToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="user_id")
-	private User user;
+	private Users user;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="subscription_plan_id")
@@ -64,11 +64,11 @@ public class Subscription implements Serializable {
 		this.nextBillingDate = nextBillingDate;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 	

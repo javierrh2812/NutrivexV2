@@ -1,4 +1,4 @@
-package com.nutrivex.platform.app.service;
+package com.nutrivex.platform.app.service.impl;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.nutrivex.platform.app.models.Request;
 import com.nutrivex.platform.app.repository.RequestRepository;
+import com.nutrivex.platform.app.service.RequestService;
 
 @Service
 public class RequestServiceImpl implements RequestService{

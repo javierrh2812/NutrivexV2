@@ -11,15 +11,17 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="roles", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "name"})})
+@Table(name="authorities", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "authority"})})
 public class Role implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotEmpty
-	private String name;
+	private String authority;
 		
 	//PUBLIC METHODS 
 	
@@ -31,15 +33,12 @@ public class Role implements Serializable{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
-
-	private static final long serialVersionUID = 1L;
-	
 
 }
