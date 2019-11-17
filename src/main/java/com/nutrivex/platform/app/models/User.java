@@ -68,7 +68,7 @@ public @Data class  User implements Serializable{
 		return person.getFirstName()+" "+person.getLastName();
 	}
 	
-	/*
+	
 	
 	public Long getId() {
 		return id;
@@ -116,7 +116,7 @@ public @Data class  User implements Serializable{
 
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
-	}*/
+	}
 
 
 

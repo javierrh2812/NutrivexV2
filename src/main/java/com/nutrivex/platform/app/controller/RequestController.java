@@ -27,6 +27,7 @@ import com.nutrivex.platform.app.service.RequestService;
 @RequestMapping("/request")
 @SessionAttributes("request")
 public class RequestController {
+	
 	public static Person sessionUser;
 	@Autowired
 	private RequestService requestService;
@@ -76,12 +77,12 @@ public class RequestController {
 		
 		model.addAttribute("sessionUser", personService.findPerson(id_nut));		
 		try {
-			if (requestService.getRequestsByNutritionistId(id_nut) == null) {
+			if (requestService.findRequestsByNutritionistId(id_nut) == null) {
 				model.addAttribute("title", "Solicitudes");
 				model.addAttribute("message", "Aun no tienes tienes ninguna solicitud");
 				return "nutritionist/menu";
 			} else {
-				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
+				model.addAttribute("reques", requestService.findRequestsByNutritionistId(id_nut));
 				return "/request/list";
 			}
 		} catch (Exception e) {
@@ -110,7 +111,7 @@ public class RequestController {
 	@GetMapping(value="/requests")
 	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
 		try {
-			model.addAttribute("Requests", requestService.getRequestsByNutritionistId(id_nut));
+			model.addAttribute("Requests", requestService.findRequestsByNutritionistId(id_nut));
 		}catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}

@@ -45,7 +45,7 @@ public class PersonController {
 			model.addAttribute("nutris", personService.getNutritionists());
 			
 			} else {
-			model.addAttribute("nutris", personService.getBúsquedaNutritionists(str));	
+			model.addAttribute("nutris", personService.getNutritionists(str));	
 			}
 			model.addAttribute("title", "Nutricionistas");
 		}

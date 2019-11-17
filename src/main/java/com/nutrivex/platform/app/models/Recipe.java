@@ -44,6 +44,7 @@ public class Recipe implements Serializable{
 	private List<NutritionPlanRecipe> nutritionPlanRecipe;*/
 	
 	//TEMPLATES A LOS QUE PERTENECE LA RECETA
+	
 	@ManyToMany(mappedBy="recipes", fetch = FetchType.LAZY)
 	private List<Template> templates;
 

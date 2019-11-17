@@ -38,6 +38,8 @@ public class Template implements Serializable{
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Recipe> recipes;
 	
+	
+	
 	public Template(Long id, String name, String description, List<Recipe> recipes) {
 		super();
 		this.id = id;
@@ -45,6 +47,9 @@ public class Template implements Serializable{
 		this.description = description;
 		this.recipes = recipes;	
 	}
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
