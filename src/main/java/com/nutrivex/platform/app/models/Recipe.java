@@ -69,6 +69,7 @@ public class Recipe implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	
+	@ManyToMany(mappedBy="recipes", fetch = FetchType.LAZY)
+	private List<Template> templates;
 
 }
