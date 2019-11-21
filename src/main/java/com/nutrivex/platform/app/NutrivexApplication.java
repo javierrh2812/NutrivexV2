@@ -27,9 +27,9 @@ public class NutrivexApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		String password = "12345";
+		String password = "nutrivex";
 		
-		for(int i=0; i<2; i++) {
+		for(int i=0; i < 1; i++) {
 			String bcryptPassword = passwordEncoder.encode(password);
 			System.out.println(bcryptPassword);
 		}

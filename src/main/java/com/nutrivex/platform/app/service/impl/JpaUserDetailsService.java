@@ -27,8 +27,7 @@ public class JpaUserDetailsService implements UserDetailsService {
 	public User loadUserByUsername(String username) throws UsernameNotFoundException {
 		Users user = userRepository.findByUsername(username);
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>(); 
-		Role role = new Role();
-		authorities.add(new SimpleGrantedAuthority(role.getAuthority()));	
+		//arreglar
 		return new User(user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, authorities);
 	}
 

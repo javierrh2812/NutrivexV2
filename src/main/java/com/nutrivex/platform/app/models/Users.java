@@ -1,9 +1,7 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,28 +9,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 
 @Entity
 @Table(name="users")
 public class Users implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
 	@Column(length = 30, unique = true)
 	private String username;
 	
-	@NotEmpty
-	private String email;
+	/*@NotEmpty
+	private String email;*/
 	
-	@NotEmpty
 	@Column(length = 60)
 	private String password;
 	
@@ -42,13 +39,13 @@ public class Users implements Serializable{
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
+	@OneToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="role_id")
 	private Role role;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	/*@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
-	private CreditCard creditCard;
+	private CreditCard creditCard;*/
 	
 	/*PUBLIC METHODS */
 	@Override
@@ -107,13 +104,13 @@ public class Users implements Serializable{
 		this.role = role;
 	}
 
-	public CreditCard getCreditCard() {
+	/*public CreditCard getCreditCard() {
 		return creditCard;
 	}
 
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
-	}
+	}*/
 
 
 	public Boolean getEnabled() {
@@ -128,6 +125,5 @@ public class Users implements Serializable{
 
 
 
-	private static final long serialVersionUID = 1L;
-
+	
 }
