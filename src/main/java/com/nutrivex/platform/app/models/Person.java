@@ -37,13 +37,6 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
-	public String getNutritionistSpecialty() {
-		return nutritionistSpecialty;
-	}
-	public void setNutritionistSpecialty(String nutritionistSpecialty) {
-		this.nutritionistSpecialty = nutritionistSpecialty;
-	}
-
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 
@@ -126,6 +119,13 @@ public class Person implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public String getNutritionistSpecialty() {
+		return nutritionistSpecialty;
+	}
+	public void setNutritionistSpecialty(String nutritionistSpecialty) {
+		this.nutritionistSpecialty = nutritionistSpecialty;
 	}
 
 	private static final long serialVersionUID = 1L;

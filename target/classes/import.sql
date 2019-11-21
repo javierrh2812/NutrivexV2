@@ -24,32 +24,22 @@ INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Ada', '
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Julio', 'Huarachi', 55.5, 1.65, 'M');
 
 
-INSERT INTO users (person_id, role_id) VALUES (1,1);
-INSERT INTO users (person_id, role_id) VALUES (2,1);
-INSERT INTO users (person_id, role_id) VALUES (3,1);
-INSERT INTO users (person_id, role_id) VALUES (4,1);
-INSERT INTO users (person_id, role_id) VALUES (5,2);
-INSERT INTO users (person_id, role_id) VALUES (6,2);
-INSERT INTO users (person_id, role_id) VALUES (7,2);
-INSERT INTO users (person_id, role_id) VALUES (8,2);
-INSERT INTO users (person_id, role_id) VALUES (9,1);
-INSERT INTO users (person_id, role_id) VALUES (10,1);
-INSERT INTO users (person_id, role_id) VALUES (11,1);
-INSERT INTO users (person_id, role_id) VALUES (12,1);
-INSERT INTO users (person_id, role_id) VALUES (13,2);
-INSERT INTO users (person_id, role_id) VALUES (14,2);
-INSERT INTO users (person_id, role_id) VALUES (15,2);
-INSERT INTO users (person_id, role_id) VALUES (16,2);
-
-
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (1,"pgarcia@correo.com","1234",1,1);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (2, "jperez@correo.com","1234",2,1);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (3, "ltorvalds@correo.com","1234",3,1);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (4, "fromero@correo.com","1234",4,1);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (5, "fgregorini@correo.com","1234",5,2);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (6, "jramos@correo.com","1234",6,2);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (7, "ahurtado@correo.com","1234",7,2);
-INSERT INTO users (id, email, password, person_id, role_id) VALUES (8, "jhuarachi@correo.com","1234",8,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Mali',"1234",1,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Domas', "1234",2,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Tomas', "1234",3,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('JamesA', "1234",4,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Francox', "1234",5,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('ElGranHermano', "1234",6,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Ioteayudo', "1234",7,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Manito', "1234",8,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Wryy',"1234",9,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('Jojo', "1234",10,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('ElRamos', "1234",11,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('MateoTobias', "1234",12,1);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('JavierElMiraNalgas',"1234",13,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('SiSePuede', "1234",14,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('AlvaroRock', "1234",15,2);
+INSERT INTO users (username, password, person_id, role_id) VALUES ('YaSeleOlvido', "1234",16,2);
 
 
 INSERT INTO foods (name, type, portion, calories, carbs, proteins) VALUES ('Tilapia','Pescado', 'tres cuartos', 11.0, 20.5, 34.7)

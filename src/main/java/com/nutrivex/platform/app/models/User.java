@@ -21,11 +21,11 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	//@NotEmpty
-	//private String username;
-	
 	@NotEmpty
-	private String email;
+	private String username;
+	
+	//@NotEmpty
+	//private String email;
 	
 	@NotEmpty
 	private String password;
@@ -38,9 +38,9 @@ public class User implements Serializable{
 	@JoinColumn(name="role_id")
 	private Role role;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	/*@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
-	private CreditCard creditCard;
+	private CreditCard creditCard;*/
 	
 	/*PUBLIC METHODS */
 	@Override
@@ -64,13 +64,7 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 
 	public Person getPerson() {
 		return person;
@@ -88,14 +82,16 @@ public class User implements Serializable{
 		this.role = role;
 	}
 
-	public CreditCard getCreditCard() {
-		return creditCard;
+
+
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setCreditCard(CreditCard creditCard) {
-		this.creditCard = creditCard;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
 
 
 

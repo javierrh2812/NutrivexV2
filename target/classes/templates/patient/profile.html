@@ -64,7 +64,7 @@ top: 15px;
                                                 <label>Usuario</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p th:if="${sessionUser.getUser().getUsername()!=null}" th:text="${sessionUser.getUser().getUsername().toString()}"></p>
                                             </div>
                                         </div>
                                         <div class="row">
