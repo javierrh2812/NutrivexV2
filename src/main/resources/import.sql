@@ -13,15 +13,6 @@ INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Abigail
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Daniela', 'Tobias', 48.7, 1.50, 'F')
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Tanya', 'degurechaff', 38.47, 1.44, 'F')
 
-INSERT INTO users (person_id, role_id) VALUES (1,1);
-INSERT INTO users (person_id, role_id) VALUES (2,1);
-INSERT INTO users (person_id, role_id) VALUES (3,1);
-INSERT INTO users (person_id, role_id) VALUES (4,1);
-INSERT INTO users (person_id, role_id) VALUES (5,2);
-INSERT INTO users (person_id, role_id) VALUES (6,2);
-INSERT INTO users (person_id, role_id) VALUES (7,2);
-INSERT INTO users (person_id, role_id) VALUES (8,2);
-
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Pedro', 'Garcia', 'Nutricion Deportiva', '1');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Juan', 'Perez', 'Nutricion Pediatrica', '2');
 INSERT INTO people (first_name, last_name, nutritionist_specialty, tuition_number) VALUES ('Linus', 'Torvalds', 'Nutricion y dietetica', '3');
@@ -31,6 +22,25 @@ INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Franco'
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Javier', 'Ramos', 53.2, 1.63, 'M');
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Ada', 'Hurtado', 49.5, 1.54, 'F');
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Julio', 'Huarachi', 55.5, 1.65, 'M');
+
+
+INSERT INTO users (person_id, role_id) VALUES (1,1);
+INSERT INTO users (person_id, role_id) VALUES (2,1);
+INSERT INTO users (person_id, role_id) VALUES (3,1);
+INSERT INTO users (person_id, role_id) VALUES (4,1);
+INSERT INTO users (person_id, role_id) VALUES (5,2);
+INSERT INTO users (person_id, role_id) VALUES (6,2);
+INSERT INTO users (person_id, role_id) VALUES (7,2);
+INSERT INTO users (person_id, role_id) VALUES (8,2);
+INSERT INTO users (person_id, role_id) VALUES (9,1);
+INSERT INTO users (person_id, role_id) VALUES (10,1);
+INSERT INTO users (person_id, role_id) VALUES (11,1);
+INSERT INTO users (person_id, role_id) VALUES (12,1);
+INSERT INTO users (person_id, role_id) VALUES (13,2);
+INSERT INTO users (person_id, role_id) VALUES (14,2);
+INSERT INTO users (person_id, role_id) VALUES (15,2);
+INSERT INTO users (person_id, role_id) VALUES (16,2);
+
 
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (1,"pgarcia@correo.com","1234",1,1);
 INSERT INTO users (id, email, password, person_id, role_id) VALUES (2, "jperez@correo.com","1234",2,1);

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+<style type="text/css">
+.imageA {
+position: absolute;
+left: 100px;
+top: 15px;
+}
+.bottom-three {
+     margin-bottom: 10px;
+  }
+</style>
+
 <head th:replace="layout/layout :: head">
 </head>
-
 <body id="page-top">
 
 	<header th:replace="layout/layout :: nutritionistHeader"></header>
 
+<div class="container py-4">
 	<div class="container emp-profile">
 		<form method="post">
 			<div class="row">
 				<div class="col-md-4">
 					<div class="profile-img">
 						<img
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-							alt="" />
+							src="/images/Nutritionist.jpg"
+							alt="image" class="imageA"/>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="profile-head">
-						<h5>Kshiti Ghelani</h5>
-						<h6>Web Developer and Designer</h6>
+						<h5 th:if="${sessionUser!=null}"th:text="${sessionUser.toString()}"></h5>
+						<h6>Nutricionista</h6>
 						<p class="proile-rating">
 							RANKINGS : <span>8/10</span>
 						</p>
@@ -33,6 +44,7 @@
 								data-toggle="tab" href="#profile" role="tab"
 								aria-controls="profile" aria-selected="false">Timeline</a></li>
 						</ul>
+						<p class="bottom-three">
 					</div>
 				</div>
 
@@ -71,10 +83,10 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6">
-									<label>Altura</label>
+									<label>Numero de Colegiado</label>
 								</div>
 								<div class="col-md-6">
-									<p th:if="${sessionUser.getHeight()==null}" th:text="----"></p>
+									<p th:if="${sessionUser.getTuitionNumber()!=null}" th:text="${sessionUser.getTuitionNumber().toString()}"></p>
 								</div>
 							</div>
 							<div class="row">
@@ -140,7 +152,7 @@
 			</div>
 		</form>
 	</div>
-
+</div>
 
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
