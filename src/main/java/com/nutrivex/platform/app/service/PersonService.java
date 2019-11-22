@@ -11,5 +11,7 @@ public interface PersonService {
 	public abstract int deletePerson(Long id);
 	public abstract Person findPerson(Long id);
 	public abstract Collection<Person> getNutritionists();
-	public abstract Collection<Person> getNutritionists(String str);
+	public abstract Collection<Person> getBúsquedaNutritionists(String str);
+	
+
 }

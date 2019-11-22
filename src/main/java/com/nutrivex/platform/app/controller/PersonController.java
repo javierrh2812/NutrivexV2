@@ -45,7 +45,7 @@ public class PersonController {
 			model.addAttribute("nutris", personService.getNutritionists());
 			
 			} else {
-			model.addAttribute("nutris", personService.getNutritionists(str));	
+			model.addAttribute("nutris", personService.getBúsquedaNutritionists(str));	
 			}
 			model.addAttribute("title", "Nutricionistas");
 		}
@@ -65,12 +65,8 @@ public class PersonController {
 		return "/patient/profile";
 	}
 	
-	
-	
-	
 	@GetMapping(value="/miplan")
 	public String plan(@RequestParam Long id_pat, Model model){
-		
 		model.addAttribute("sessionUser", sessionUser);
 		Request r = requestService.findRequestByPatientId(id_pat);
 		try {

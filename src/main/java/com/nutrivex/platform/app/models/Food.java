@@ -35,7 +35,7 @@ public class Food implements Serializable {
 	@NotEmpty
 	private Double calories;
 	
-	//NO ES NECESARIO TENER ESTE ATRIBUTO GREGORINI XD
+	//NO ES NECESARIO TENER ESTE ATRIBUTO GREGORINI AQUI XD
 	/*
 	@JoinTable(
 	        name = "recipes_foods",

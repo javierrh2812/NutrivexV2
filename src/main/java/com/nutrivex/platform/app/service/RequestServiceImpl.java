@@ -1,4 +1,4 @@
-package com.nutrivex.platform.app.service.impl;
+package com.nutrivex.platform.app.service;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.nutrivex.platform.app.models.Request;
 import com.nutrivex.platform.app.repository.RequestRepository;
-import com.nutrivex.platform.app.service.RequestService;
 
 @Service
 public class RequestServiceImpl implements RequestService{
@@ -38,6 +37,22 @@ public class RequestServiceImpl implements RequestService{
 		}
 		return result;
 	}
+
+	@Override
+	public Collection<Request> getRequestsByNutritionistId(Long id) {
+		// TODO Auto-generated method stub
+		return requestRepository.listarSolicitudesPorIdDeNutricionista(id);
+	}
+
+	@Override
+	public Request findRequestByPatientId(Long id_pat) {
+		return requestRepository.buscarSolicitudDePaciente(id_pat);
+	}
+	
+	@Override
+	public Collection<Request> findRequestByNutritionistId(Long id_nut) {
+		return requestRepository.findRequestByNutritionist(id_nut);
+	}
 	
 	@Override
 	public void acceptingRequest(Long id_pat) {
@@ -47,21 +62,6 @@ public class RequestServiceImpl implements RequestService{
 	@Override
 	public void rejectingRequest(Long id_pat) {
 		requestRepository.rejectRequest(id_pat);
-	}
-
-	@Override
-	public Request findRequestById(Long id) {
-		return requestRepository.findById(id).orElse(null);
-	}
-
-	@Override
-	public Request findRequestByPatientId(Long id_pat) {
-		return requestRepository.findRequestByPatientId(id_pat);
-	}
-
-	@Override
-	public Collection<Request> findRequestsByNutritionistId(Long id_nut) {
-		return requestRepository.findAllRequestsByNutritionistId(id_nut);
 	}
 
 }

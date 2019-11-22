@@ -1,6 +1,7 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,9 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name="templates")
-public class Template implements Serializable{
+public @Data class Template implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +30,12 @@ public class Template implements Serializable{
 	
 	private String description;
 	
+	private Date date;	
+
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	private User user; 
+	@JoinColumn(name="nutririonist_id")
+	private User nutritionist; 
 	
 	@JoinTable(
 	        name = "templates_recipes",
@@ -38,8 +45,10 @@ public class Template implements Serializable{
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Recipe> recipes;
 	
-	
-	
+	public Template() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Template(Long id, String name, String description, List<Recipe> recipes) {
 		super();
 		this.id = id;
@@ -48,42 +57,6 @@ public class Template implements Serializable{
 		this.recipes = recipes;	
 	}
 	
-	
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-
-	/**
-	 * @return the recipes
-	 */
-	public List<Recipe> getRecipes() {
-		return recipes;
-	}
-	/**
-	 * @param recipes the recipes to set
-	 */
-	public void setRecipes(List<Recipe> recipes) {
-		this.recipes = recipes;
-	}
-
-
 	/**
 	 * 
 	 */

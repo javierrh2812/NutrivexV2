@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+</head>
+
+<body id="page-top">
+
+	<header th:replace="layout/layout :: nutritionistHeader"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+
+			<div class="card-body">
+
+				<h3 class="card-title" th:text="${title}" align="center"></h3>
+
+				<h4 class="card-title">
+					<a class="btn btn-primary"
+						th:href="@{/recipe/new/(id=${sessionUser.id})}"
+						th:text="'Nueva Receta'"></a>
+				</h4>
+
+				<div th:if="${#lists.isEmpty(recipes)}"
+					class="alert alert-info my-4"
+					th:text="'No hay recetas, crea una ahora mismo!'"></div>
+
+				<table th:if="${not #lists.isEmpty(recipes)}"
+					class="table table-bordered table-striped my-4">
+					<thead class="thead-dark">
+						<tr>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="r:${recipes}">
+							<td th:text="${r.name}"></td>
+							<td th:text="${r.description}"></td>
+							<td><a class="btn btn-primary btn-sm"
+								th:href="@{/recipe/edit(id=${r.id})}" th:text="'Editar'"></a></td>
+							<td><a class="btn btn-danger btn-sm"
+								th:href="@{/recipe/delete(id=${r.id})}" th:text="'Eliminar'"
+								onclick="return confirm('¿Estas seguro que desea eliminar la receta?');"></a></td>
+
+						</tr>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+
+
+</body>
+</html>

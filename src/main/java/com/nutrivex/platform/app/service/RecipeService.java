@@ -1,19 +1,17 @@
 package com.nutrivex.platform.app.service;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.nutrivex.platform.app.models.Recipe;
 
-public interface RecipeService {
+public interface RecipeService extends CrudService<Recipe>{
 	
-	public abstract int createRecipe(Recipe recipe);
+	/*public void save(Recipe recipe);
+	public void delete(Long id);
+	public void update(Long id, Recipe recipe);
+	public Recipe findOne(Long id);	*/
+	public Collection<Recipe> fetchRecipesByNutritionistId(Long id);
+	public Collection<Recipe> fetchRecipesByName(String name) throws Exception;
 	
-	public abstract int updateRecipe(Long id, Recipe recipe);
-	
-	public abstract int deleteRecipe(Long id);
-		
-	public abstract Recipe findRecipeByNutritionistId(Long id_nutr);
-	
-	public abstract List<Recipe> findRecipesByNutritionistId(Long id_nutr);
 
 }

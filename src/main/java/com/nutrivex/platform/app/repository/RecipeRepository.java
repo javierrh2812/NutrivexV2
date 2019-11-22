@@ -11,9 +11,13 @@ import com.nutrivex.platform.app.models.Recipe;
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 	
-	@Query("Select r from Recipe r where r.template_id =?1")
-	public Collection<Recipe> findRecipesByTemplateId(Long id_templ);
+	@Query("Select r from Recipe r where r.nutritionist.id=?1")
+	public Collection<Recipe> fetchRecipesByNutritionistId(Long id);
 	
-	@Query("Select r from Recipe r where r.id =?1")
-	public Recipe findRecipeById(Long id_rec);
+	@Query("SELECT r FROM Recipe r WHERE r.name LIKE %?1%")
+	public Collection<Recipe> fetchRecipesByName(String name);
+	
+	//@Query("SELECT r FROM Recipe r JOIN FETCH r.nutritionist n LEFT JOIN FETCH r.foods f WHERE r.id = ?1")
+	//public Optional<Recipe> fetchRecipeByIdWithNutritionistWithFoods(Long id);
+	
 }

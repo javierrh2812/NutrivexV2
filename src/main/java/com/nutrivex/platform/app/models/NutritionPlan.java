@@ -17,9 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "nutrition_plans")
-public class NutritionPlan implements Serializable {
+public @Data class NutritionPlan implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,61 +61,6 @@ public class NutritionPlan implements Serializable {
 	}
 
 	//GETTERS Y SETTERS 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public double getTargetWeight() {
-		return targetWeight;
-	}
-
-	public void setTargetWeight(double targetWeight) {
-		this.targetWeight = targetWeight;
-	}
-
-	public int getTotalTime() {
-		return totalTime;
-	}
-
-	public void setTotalTime(int totalTime) {
-		this.totalTime = totalTime;
-	}
-
-	public int getFoodQuantityPerDay() {
-		return foodQuantityPerDay;
-	}
-
-	public void setFoodQuantityPerDay(int foodQuantityPerDay) {
-		this.foodQuantityPerDay = foodQuantityPerDay;
-	}
-
-	public User getNutritionist() {
-		return nutritionist;
-	}
-
-	public void setNutritionist(User nutritionist) {
-		this.nutritionist = nutritionist;
-	}
-
-	public User getPatient() {
-		return patient;
-	}
-
-	public void setPatient(User patient) {
-		this.patient = patient;
-	}
-
-	public List<NutritionPlanRecipe> getItems() {
-		return items;
-	}
-
-	public void setItems(List<NutritionPlanRecipe> items) {
-		this.items = items;
-	}
 	
 	
 	private static final long serialVersionUID = 1L;
