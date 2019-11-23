@@ -1,7 +1,9 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,9 +42,9 @@ public class Users implements Serializable{
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	@OneToOne(fetch=FetchType.LAZY) 
-	@JoinColumn(name="role_id")
-	private Role role;
+	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
+	@JoinColumn(name="user_id")
+	private List<Role> roles;
 	
 	/*@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
@@ -95,15 +98,6 @@ public class Users implements Serializable{
 	}
 
 	
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
 	/*public CreditCard getCreditCard() {
 		return creditCard;
 	}
@@ -112,6 +106,14 @@ public class Users implements Serializable{
 		this.creditCard = creditCard;
 	}*/
 
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	public Boolean getEnabled() {
 		return enabled;

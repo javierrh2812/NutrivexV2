@@ -6,10 +6,10 @@ import java.util.Collection;
 import com.nutrivex.platform.app.models.Person;
 
 public interface PersonService {
-	public abstract int createPerson(Person person);
-	public abstract int updatePerson(Long id, Person person);
-	public abstract int deletePerson(Long id);
-	public abstract Person findPerson(Long id);
-	public abstract Collection<Person> getNutritionists();
-	public abstract Collection<Person> getBúsquedaNutritionists(String str);
+	public int createPerson(Person person);
+	public int updatePerson(Long id, Person person);
+	public int deletePerson(Long id);
+	public Person findPerson(Long id);
+	public Collection<Person> getNutritionists();
+	public Collection<Person> getBúsquedaNutritionists(String str);
 }

@@ -32,10 +32,7 @@ public class PersonController {
 		model.addAttribute("message", "Bienvenido a Nutrivex!!");
 		model.addAttribute("title", "Inicio");
 		
-		if (sessionUser.getUser().getRole().getId() == 1) return "nutritionist/menu";
-		else return "patient/menu";
-			
-		
+		return "patient/menu";
 	}
 	
 	@GetMapping(value="/patient/nutritionists")
@@ -80,7 +77,6 @@ public class PersonController {
 	@GetMapping(value="/profile")
 	public String toProfilePatient(Model model) {
 		model.addAttribute("sessionUser", sessionUser);
-		if (sessionUser.getUser().getRole().getId() == 1) return "/nutritionist/profile";
 		return "/patient/profile";
 	}
 	

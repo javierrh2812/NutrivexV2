@@ -7,10 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="roles")
+@Table(name="roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "role" }) })
 public class Role implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -19,7 +19,6 @@ public class Role implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
 	private String role;
 		
 	//PUBLIC METHODS 
