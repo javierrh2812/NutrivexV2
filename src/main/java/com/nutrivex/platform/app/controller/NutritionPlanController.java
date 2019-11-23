@@ -9,7 +9,7 @@ import com.nutrivex.platform.app.service.NutritionPlanService;
 
 @Controller
 public class NutritionPlanController {
-	
+	/ /need to correct errors
 	private NutritionPlanService nps;
 	
 	@GetMapping(value="/NutritionalPlan")
