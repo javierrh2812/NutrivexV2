@@ -3,6 +3,7 @@ package com.nutrivex.platform.app.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.nutrivex.platform.app.models.User;
@@ -31,6 +32,23 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		userRepository.save(user);
 		return 0;
+	}
+
+	@Override
+	public void userDataPatient(Long id) {
+		userRepository.updateDataPat(id);
+		
+	}
+
+	@Override
+	public void userDataNutritionist(Long id) {
+		userRepository.updateDataNutri(id);
+		
+	}
+
+	@Override
+	public Long getLastValue() {
+		return userRepository.getLastId();
 	}
 
 	
