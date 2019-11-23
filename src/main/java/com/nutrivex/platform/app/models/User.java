@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+
 import lombok.Data;
 
 
@@ -28,11 +29,6 @@ public @Data class User implements Serializable{
 	@NotEmpty
 	private String password;
 	
-	//PERSONA ASOCIADA AL USUARIO
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="person_id")
-	private Person person;
-	
 	//ROL DEL USUARIO
 	@OneToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="role_id")
@@ -40,10 +36,9 @@ public @Data class User implements Serializable{
 	
 	@Override
 	public String toString() {
-		return person.getFirstName()+" "+person.getLastName();
+		return username;
 	}
 	
-
 	private static final long serialVersionUID = 1L;
 
 }

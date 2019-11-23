@@ -1,4 +1,6 @@
 package com.nutrivex.platform.app.controller;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -35,25 +37,29 @@ public class RecipeController {
 
 	@Autowired
 	private PersonService personService;
-	
-	@GetMapping(value = "/list/{name}", produces = { "application/json" })
-	public @ResponseBody List<Recipe> fetchRecipes(@PathVariable String name, Model model) {
+
+	@GetMapping(value = "/{id_nut}/list/{name}", produces = { "application/json" })
+	public @ResponseBody List<String> fetchRecipesByName(@PathVariable Long id_nut, @PathVariable String name, Model model) {
 		List<Recipe> recipes = null;
+		List<String> strings = new ArrayList<String>();
 		try {
-			recipes = (List<Recipe>) recipeService.fetchRecipesByName(name);
+			recipes = recipeService.fetchRecipesByName(id_nut, name);
+			for (Recipe r: recipes) {
+				strings.add(r.getName());
+			}
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return recipes;
+		return strings;
 	}
-	
+
 	@GetMapping("/list")
 	public String listRecipes(@RequestParam Long id_nut, Model model) {
-		
-		User nutri = personService.findPerson(id_nut).getUser(); 
-		model.addAttribute("sessionUser", nutri.getPerson());		
+
+		Person nutri = personService.findPerson(id_nut);
+		model.addAttribute("sessionUser", nutri);
 		try {
-			if (recipeService.fetchRecipesByNutritionistId(id_nut) == null) {				
+			if (recipeService.fetchRecipesByNutritionistId(id_nut) == null) {
 				model.addAttribute("message", "Aun no tienes ninguna receta");
 			} else {
 				model.addAttribute("recipes", recipeService.fetchRecipesByNutritionistId(id_nut));
@@ -65,18 +71,17 @@ public class RecipeController {
 			return "/nutritionist/menu";
 		}
 	}
-	
-	
+
 	@GetMapping(value = "/new")
 	public String newRecipe(@RequestParam Long id, Model model, RedirectAttributes flash) {
 
 		sessionUser = personService.findPerson(id);
 		User nutri = personService.findPerson(id).getUser();
-		
+
 		if (nutri == null) {
 			return "redirect:nutritionist/menu";
 		}
-		
+
 		Recipe recipe = new Recipe();
 		recipe.setNutritionist(nutri);
 
@@ -87,34 +92,34 @@ public class RecipeController {
 	}
 
 	@PostMapping(value = "/save")
-	public String saveRecipe(@Valid Recipe recipe, BindingResult result, Model model, SessionStatus status) throws Exception {
-		
+	public String saveRecipe(@Valid Recipe recipe, BindingResult result, Model model, SessionStatus status)
+			throws Exception {
+
 		model.addAttribute("sessionUser", sessionUser);
-		
+
 		if (result.hasErrors()) {
 			return "/recipe/new";
 		} else {
 			recipeService.save(recipe);
-			model.addAttribute("message", "Receta agregada!");
+			model.addAttribute("success", "Receta agregada!");
 			model.addAttribute("recipes", recipeService.fetchRecipesByNutritionistId(recipe.getNutritionist().getId()));
 			status.setComplete();
 		}
 		model.addAttribute("title", "Recetas");
 		return "/recipe/list";
 	}
-	
+
 	@GetMapping(value = "/delete")
 	public String deleteRecipe(@RequestParam Long id, Model model, RedirectAttributes flash) throws Exception {
 
 		recipeService.deleteById(id);
-		
+
 		model.addAttribute("title", "Recetas");
 		model.addAttribute("message", "Receta eliminada");
 		model.addAttribute("recipes", recipeService.fetchRecipesByNutritionistId(sessionUser.getId()));
 		model.addAttribute("sessionUser", sessionUser);
 		return "recipe/list";
 
-		
 	}
 
 }

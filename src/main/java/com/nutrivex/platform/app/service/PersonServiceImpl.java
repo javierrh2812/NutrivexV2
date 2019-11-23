@@ -1,5 +1,6 @@
 package com.nutrivex.platform.app.service;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -59,6 +60,11 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public Collection<Person> getBúsquedaNutritionists(String str) {
 		return personRepository.listarNutricionistasBusquedaPorNombre(str);
+	}
+
+	@Override
+	public List<Person> fetchNutritionistsByTerm(String term) throws Exception {
+		return personRepository.fetchNutritionistsByTerm(term);
 	}
 
 	

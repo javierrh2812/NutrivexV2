@@ -1,5 +1,7 @@
 package com.nutrivex.platform.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ public class PersonController {
 	@GetMapping(value= {"/menu"})
 	public String index(@RequestParam Long id,Model model){
 		
+		try {
 		sessionUser = personService.findPerson(id);
 		
 		if (sessionUser==null) return "login";
@@ -32,9 +35,15 @@ public class PersonController {
 		model.addAttribute("message", "Bienvenido a Nutrivex!!");
 		model.addAttribute("title", "Inicio");
 		
-		if (sessionUser.getUser().getRole().getId() == 1) return "nutritionist/menu";
+		
+		if (sessionUser.getUser().getRole().getId()==1) return "nutritionist/menu";
 		else return "patient/menu";
-			
+		}
+		
+		catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+			return "/login";
+		}
 		
 	}
 	
@@ -78,18 +87,18 @@ public class PersonController {
 			}
 			if(r.getAcepted()==null) {
 				model.addAttribute("title", "Inicio");
-				model.addAttribute("message", "Tu solicitud aún no ha sido respondida");
+				model.addAttribute("success", "Tu solicitud aún no ha sido respondida");
 				return "patient/menu";
 			}
 			if(r.getAcepted()==true) {
 				model.addAttribute("title", "Inicio");
-				model.addAttribute("message", "En unos momentos tendrás tu plan nutricional");
+				model.addAttribute("info", "En unos momentos tendrás tu plan nutricional");
 				return "patient/menu";
 			} 
 			if(r.getAcepted()==false) {
 				model.addAttribute("nutris", personService.getNutritionists());
 				model.addAttribute("title", "Nutricionistas");
-				model.addAttribute("message", "Tu solicitud fue rechazada, elige otro nutricionista");
+				model.addAttribute("error", "Tu solicitud fue rechazada, elige otro nutricionista");
 				return "patient/nutritionistList";
 			}
 		}
@@ -101,6 +110,29 @@ public class PersonController {
 		
 		return "patient/menu";
 		
+	}
+	
+	@GetMapping("/search-nutritionists")
+	public String searchPatient(@RequestParam String term,Model model) {
+		try {
+			model.addAttribute("sessionUser", sessionUser);
+			if(term.length()!=0) {
+				List<Person> nutritionists=personService.fetchNutritionistsByTerm(term);
+				if(!nutritionists.isEmpty()) {
+					model.addAttribute("nutris",nutritionists);
+				}else {
+					model.addAttribute("info","No nutricionista");
+					model.addAttribute("nutris",personService.getNutritionists());
+				}
+				
+			}else {
+				model.addAttribute("info","Debe ingresar un dni");
+				model.addAttribute("nutris",personService.getNutritionists());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		return "/patient/nutritionistsList";
 	}
 
 }

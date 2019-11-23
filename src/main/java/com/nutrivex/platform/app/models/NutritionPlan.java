@@ -1,7 +1,6 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,12 +31,12 @@ public @Data class NutritionPlan implements Serializable {
 	private double targetWeight;
 	
 	//TIEMPO EN SEMANAS QUE DURARÁ EL PLAN NUTRICIONAL
-	@Column(name = "total_time")
-	private int totalTime;
+	//@Column(name = "total_time")
+	//private int totalTime;
 	
 	//CANTIDAD DE COMIDAS POR DIA PARA EL PACIENTE
-	@Column(name = "food_quantity_per_day")
-	private int foodQuantityPerDay;
+	//@Column(name = "food_quantity_per_day")
+	//private int foodQuantityPerDay;
 	
 	//NUTRICIONISTA: CREADOR DEL PLAN
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -54,11 +53,6 @@ public @Data class NutritionPlan implements Serializable {
 	@JoinColumn(name="nutrition_plan_id")
 	private List<NutritionPlanRecipe> items;
 	
-	
-	//CONSTRUCTOR
-	public NutritionPlan() {
-		this.items = new ArrayList<NutritionPlanRecipe>();
-	}
 
 	//GETTERS Y SETTERS 
 	

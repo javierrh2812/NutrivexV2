@@ -1,6 +1,5 @@
 package com.nutrivex.platform.app.service.impl;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,13 +41,18 @@ public class RecipeServiceImpl implements RecipeService {
 	}	
 		
 	@Override
-	public Collection<Recipe> fetchRecipesByNutritionistId(Long id) {
+	public List<Recipe> fetchRecipesByNutritionistId(Long id) throws Exception {
 		return recipeRepository.fetchRecipesByNutritionistId(id);
 	}
 
 	@Override
-	public Collection<Recipe> fetchRecipesByName(String name) throws Exception {
-		return recipeRepository.fetchRecipesByName(name);
+	public List<Recipe> fetchRecipesByName(Long id_nut, String name) throws Exception {
+		return recipeRepository.fetchRecipesByNameAndByNutritionistId(id_nut, name);
+	}
+
+	@Override
+	public Recipe findByName(String name) throws Exception {
+		return recipeRepository.findByName(name);
 	}
 
 	

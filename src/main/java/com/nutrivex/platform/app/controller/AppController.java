@@ -14,7 +14,7 @@ public class AppController {
 		return "login";
 	}
 	
-	@PostMapping(value={"/login"})
+	@PostMapping(value={"/logout"})
 	public String logout() {
 		return "login";
 	}
