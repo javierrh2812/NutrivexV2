@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nutrivex.platform.app.models.Person;
 import com.nutrivex.platform.app.models.Request;
+import com.nutrivex.platform.app.models.User;
 import com.nutrivex.platform.app.service.PersonService;
 import com.nutrivex.platform.app.service.RequestService;
 

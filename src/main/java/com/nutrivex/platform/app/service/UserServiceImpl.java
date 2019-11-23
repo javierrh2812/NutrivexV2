@@ -26,6 +26,13 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findById(id).orElse(null);
 	}
 
+	@Override
+	public int createUser(User user) {
+		// TODO Auto-generated method stub
+		userRepository.save(user);
+		return 0;
+	}
+
 	
 	
 
