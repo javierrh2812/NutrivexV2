@@ -22,7 +22,7 @@ INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Javier'
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Ada', 'Hurtado', 49.5, 1.54, 'F');
 INSERT INTO people (first_name, last_name, weight, height, sex) VALUES ('Julio', 'Huarachi', 55.5, 1.65, 'M');
 
-INSERT INTO users (enabled, username, password, person_id, role_id) VALUES (true, frankox, $2a$10$jCPJdEu.5CqwUyktwfsQfuh0vORxDK590OfN97ouMfu87N9p2U7Oe,1,1);
+--INSERT INTO users (enabled, username, password, person_id) VALUES (true, frankox, $2a$10$jCPJdEu.5CqwUyktwfsQfuh0vORxDK590OfN97ouMfu87N9p2U7Oe,1);
 -- INSERT INTO users (enabled, username, password, person_id, role_id) VALUES (2, true, frankox,"1234",2,1);
 -- INSERT INTO users (enabled, username, password, person_id, role_id) VALUES (3,true, frankox,"1234",3,1);
 -- INSERT INTO users (enabled, username, password, person_id, role_id) VALUES (4,true, frankox,"1234",4,1);

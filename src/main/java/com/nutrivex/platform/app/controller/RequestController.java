@@ -1,4 +1,4 @@
-package com.nutrivex.platform.app.controller;
+/*package com.nutrivex.platform.app.controller;
 
 import java.util.Date;
 
@@ -39,8 +39,8 @@ public class RequestController {
 			RedirectAttributes flash) {
 
 		sessionUser = personService.findPerson(id_pat);
-		Users nutri = personService.findPerson(id_nutri).getUser();
-		Users pat = personService.findPerson(id_pat).getUser();
+		Users nutri = personService.findPerson(id_nutri);
+		Users pat = personService.findPerson(id_pat);
 
 		if (nutri == null || pat == null) {
 			flash.addFlashAttribute("error", "El nutricionista o el paciente no existen en la BBDD");
@@ -118,3 +118,4 @@ public class RequestController {
 		return "requests/list";
 	}
 }
+*/

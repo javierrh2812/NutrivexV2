@@ -11,7 +11,7 @@ import com.nutrivex.platform.app.models.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long>{
 	
-	@Query("select p from Person p where p.users = ?1")
+	@Query("select p from Person p where p.id=?1")
 	public Collection<Person> listarNutricionistas();
 	
 	@Query("select p from Person p where p.firstName LIKE '%?1%'")

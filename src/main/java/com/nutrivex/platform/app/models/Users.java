@@ -15,13 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="users")
 public class Users implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,17 +28,10 @@ public class Users implements Serializable{
 	@Column(length = 30, unique = true)
 	private String username;
 	
-	/*@NotEmpty
-	private String email;*/
-	
 	@Column(length = 60)
 	private String password;
 	
 	private Boolean enabled;
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="person_id")
-	private Person person;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL) 
 	@JoinColumn(name="user_id")
@@ -51,11 +42,6 @@ public class Users implements Serializable{
 	private CreditCard creditCard;*/
 	
 	/*PUBLIC METHODS */
-	@Override
-	public String toString() {
-		return person.getFirstName()+" "+person.getLastName();
-	}
-	
 	public Long getId() {
 		return id;
 	}
@@ -79,22 +65,6 @@ public class Users implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	/*public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}*/
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
 	}
 
 	
@@ -122,10 +92,7 @@ public class Users implements Serializable{
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
-
-
-
-
+	
 
 	
 }

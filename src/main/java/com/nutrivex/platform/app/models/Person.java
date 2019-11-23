@@ -46,9 +46,6 @@ public class Person implements Serializable {
 
 	@Column(name="tuition_number")
 	private String tuitionNumber;
-	
-	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
-	private Users user;	
 
 
 	public Person() {
@@ -115,14 +112,6 @@ public class Person implements Serializable {
 
 	public void setTuitionNumber(String tuitionNumber) {
 		this.tuitionNumber = tuitionNumber;
-	}
-
-	public Users getUser() {
-		return user;
-	}
-
-	public void setUser(Users user) {
-		this.user = user;
 	}
 
 	private static final long serialVersionUID = 1L;
