@@ -42,6 +42,13 @@ public class UserController {
 		model.addAttribute("user", new User());
 		return "signUps/signUpPatient";
 	}
+	
+	@GetMapping(value = "/newNutri")
+	public String newUserNutritionist(Model model) {
+		model.addAttribute("user", new User());
+		return "signUps/signUpNutritionist";
+	}
+	
 	/*
 	@GetMapping(value = "/new2")
 	public String newPerson(Model model) {
@@ -78,6 +85,43 @@ public class UserController {
 		} else {
 			
 			personService.createPerson(person);
+			//personService.createPerson(person);
+			status.setComplete();
+		}
+		//Long id_par = pat.getRole().getId();
+		//userService.userDataPatient(id_par);
+		return "/login";
+	}
+	
+	@PostMapping(value = "/saveNutritionist")
+	public String saveUserNutritionist(@Valid User user1 ,BindingResult result1, Model model, SessionStatus status) throws Exception {
+		
+		if (result1.hasErrors()) {
+			return "/login";
+		} else {
+			
+			userService.createUser(user1);
+			//personService.createPerson(person);
+			status.setComplete();
+		}
+		//Long id_par = userService.getLastValue();
+		//userService.userDataPatient(id_par);
+		model.addAttribute("person", new Person());
+		return "signUps/signUpNutritionistFinal";
+	}
+	
+	@PostMapping(value = "/saveNutritionist2")
+	@Transactional
+	public String saveUserNutritionist2(@Valid Person person2, BindingResult result2, Model model, SessionStatus status) throws Exception {
+		
+		//User pat = personService.findPerson((long)2).getUser();
+		//userService.getLastValue();
+		
+		if (result2.hasErrors()) {
+			return "/login";
+		} else {
+			
+			personService.createPerson(person2);
 			//personService.createPerson(person);
 			status.setComplete();
 		}

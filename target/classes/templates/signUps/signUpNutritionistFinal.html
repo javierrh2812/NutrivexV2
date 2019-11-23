@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm_v1 by Colorlib</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/css/style.css">
+
+		
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('/images/bg-registration-form-1.jpg');">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="/images/registration-form-1.jpg" alt="">
+				</div>
+				<form th:action="@{/users/savePatient2}" th:object="${person}" method="post">
+					<div class="form-group">
+						<input type="text" placeholder="Nombres" class="form-control" th:field="*{firstName}" >
+						<input type="text" placeholder="Apellidos" class="form-control" th:field="*{lastName}">
+					</div>
+					<div class="form-wrapper">
+						<input type="number" placeholder="Numero de Colegiatura" class="form-control" th:field="*{tuitionNumber}" pattern="[0-9]+([\.,][0-9]+)?" min="10000" max="99999">
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Especialidad" class="form-control" th:field="*{nutritionistSpecialty}" >
+					</div>
+					<div class="form-wrapper">
+						<input type="number" placeholder="Tarjeta de Credito" class="form-control" th:field="*{creditCard}" pattern="[0-9]+([\.,][0-9]+)?" min="1000000000000000" max="9999999999999999">
+					</div>
+					<button type="submit">Registrar
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

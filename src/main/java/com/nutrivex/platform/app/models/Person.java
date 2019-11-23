@@ -37,6 +37,9 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
+	@Column(name="credit_Card")
+	private String creditCard;
+	
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 
@@ -127,6 +130,17 @@ public class Person implements Serializable {
 	public void setNutritionistSpecialty(String nutritionistSpecialty) {
 		this.nutritionistSpecialty = nutritionistSpecialty;
 	}
+
+	
+	
+	public String getCreditCard() {
+		return creditCard;
+	}
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
+	}
+
+
 
 	private static final long serialVersionUID = 1L;
 
