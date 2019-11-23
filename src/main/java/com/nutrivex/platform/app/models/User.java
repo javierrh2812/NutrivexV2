@@ -1,7 +1,6 @@
 package com.nutrivex.platform.app.models;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
+import lombok.Data;
+
+
 @Entity
 @Table(name="users")
-public class User implements Serializable{
+public @Data class User implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,31 +25,35 @@ public class User implements Serializable{
 	
 	@NotEmpty
 	private String username;
+<<<<<<< HEAD
 	
 	//@NotEmpty
 	//private String email;
+=======
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 	
 	@NotEmpty
 	private String password;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="person_id")
-	private Person person;
-	
+	//ROL DEL USUARIO
 	@OneToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="role_id")
 	private Role role;
 	
+<<<<<<< HEAD
 	/*@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="credit_card_id")
 	private CreditCard creditCard;*/
 	
 	/*PUBLIC METHODS */
+=======
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 	@Override
 	public String toString() {
-		return person.getFirstName()+" "+person.getLastName();
+		return username;
 	}
 	
+<<<<<<< HEAD
 	public Long getId() {
 		return id;
 	}
@@ -96,6 +102,8 @@ public class User implements Serializable{
 
 
 
+=======
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 	private static final long serialVersionUID = 1L;
 
 }

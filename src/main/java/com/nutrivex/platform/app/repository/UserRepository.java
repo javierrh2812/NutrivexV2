@@ -11,6 +11,7 @@ import com.nutrivex.platform.app.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 	 public User findByUsername(String username);
+<<<<<<< HEAD
 	 
 	 	@Modifying
 		@Query("update User r set r.role.id = 1 where r.id= :id")
@@ -23,4 +24,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 		@Query("select max(u.id) from User u")
 		public Long getLastId();
 		
+=======
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 }

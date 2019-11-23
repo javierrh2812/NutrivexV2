@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="foods")
@@ -16,23 +17,38 @@ public class Food implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
 	private String name;
 	
+	@NotEmpty
 	private String type;
 	
+	@NotEmpty
 	private String portion;
 	
+	@NotEmpty
 	private Double proteins;
 	
+	@NotEmpty
 	private Double carbs;
 	
+	@NotEmpty
 	private Double calories;
+	
+	//NO ES NECESARIO TENER ESTE ATRIBUTO GREGORINI AQUI XD
+	/*
+	@JoinTable(
+	        name = "recipes_foods",
+	        joinColumns = @JoinColumn(name = "food_id", nullable = false),
+	        inverseJoinColumns = @JoinColumn(name="recipe_id", nullable = false)
+	)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Recipe> recipes;
+	*/
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	
+
 	/**/
 	public Long getId() {
 		return id;
@@ -76,10 +92,7 @@ public class Food implements Serializable {
 	public void setCalories(Double calories) {
 		this.calories = calories;
 	}
-	
-	
-	
-	
+	private static final long serialVersionUID = 1L;
 	
 
 }

@@ -19,15 +19,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nutrivex.platform.app.models.Person;
 import com.nutrivex.platform.app.models.Request;
-import com.nutrivex.platform.app.models.User;
 import com.nutrivex.platform.app.service.PersonService;
 import com.nutrivex.platform.app.service.RequestService;
 
 @Controller
-@RequestMapping("/requests")
+@RequestMapping("/request")
 @SessionAttributes("request")
 public class RequestController {
+	
 	public static Person sessionUser;
+	
 	@Autowired
 	private RequestService requestService;
 
@@ -39,31 +40,28 @@ public class RequestController {
 			RedirectAttributes flash) {
 
 		sessionUser = personService.findPerson(id_pat);
-		User nutri = personService.findPerson(id_nutri).getUser();
-		User pat = personService.findPerson(id_pat).getUser();
+		
+		Person nutri = personService.findPerson(id_nutri);
+		Person pat = personService.findPerson(id_pat);
 
-		if (nutri == null || pat == null) {
-			flash.addFlashAttribute("error", "El nutricionista o el paciente no existen en la BBDD");
-			return "redirect:/menu";
-		}
+		
 		Request request = new Request();
 		request.setDate(new Date());
-		request.setNutritionist(nutri);
-		request.setPatient(pat);
+		request.setNutritionist(nutri.getUser());
+		request.setPatient(pat.getUser());
 
 		model.addAttribute("request", request);
-		model.addAttribute("patient", pat.getPerson());
+		model.addAttribute("patient", pat);
 		model.addAttribute("title", "Solicitud de Plan");
 		model.addAttribute("sessionUser", sessionUser);
-
-		return "requests/new";
+		return "request/new";
 	}
 
 	@PostMapping(value = "/save")
 	public String saveRequest(@Valid Request request, BindingResult result, Model model, SessionStatus status) {
 		model.addAttribute("sessionUser", sessionUser);
 		if (result.hasErrors()) {
-			return "/requests/new";
+			return "/request/new";
 		} else {
 			requestService.createRequest(request);
 			model.addAttribute("message", "Solicitud enviada!");
@@ -83,7 +81,7 @@ public class RequestController {
 				return "nutritionist/menu";
 			} else {
 				model.addAttribute("reques", requestService.getRequestsByNutritionistId(id_nut));
-				return "/requests/list";
+				return "/request/list";
 			}
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
@@ -98,7 +96,7 @@ public class RequestController {
 	public String stateAccept(@RequestParam Long id_nut, @RequestParam Long id_pat, Model model) {
 		model.addAttribute("sessionUser", sessionUser);
 		requestService.acceptingRequest(id_pat);
-		return "requests/list";
+		return "request/list";
 	}
 
 	@GetMapping(value = "/stateRejected")
@@ -106,7 +104,7 @@ public class RequestController {
 	public String stateReject(@RequestParam Long id_nut, @RequestParam Long id_pat, Model model) {
 		model.addAttribute("sessionUser", sessionUser);
 		requestService.rejectingRequest(id_pat);
-		return "requests/list";
+		return "request/list";
 	}
 	@GetMapping(value="/requests")
 	public String listRequestsByNutritionId(@RequestParam Long id_nut, Model model) {
@@ -115,6 +113,6 @@ public class RequestController {
 		}catch(Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "requests/list";
+		return "request/list";
 	}
 }

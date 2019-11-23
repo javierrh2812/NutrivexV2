@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+
+<body id="page-top">
+
+	<header th:replace="layout/layout :: nutritionistHeader"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+
+			<div class="card-body">
+			
+				<h3 class="card-title" th:text="${title}" align="center"></h3>
+
+				<h4 class="card-title">
+					<a class="btn btn-primary"
+						th:href="@{/template/new/(id=${sessionUser.id})}"
+						th:text="'Nuevo template'"></a>
+				</h4>
+
+				<div th:if="${#lists.isEmpty(templates)}"
+					class="alert alert-info my-4"
+					th:text="'No hay templates, crea uno ahora mismo!'"></div>
+
+				<table th:if="${not #lists.isEmpty(templates)}"
+					class="table table-bordered table-striped my-4">
+					<thead class="thead-dark">
+						<tr>
+							<th>nombre</th>
+							<th>descripción</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="temp: ${templates}">
+							<td th:text="${temp.name}"></td>
+							<td th:text="${temp.description}"></td>
+							<td><a class="btn btn-primary btn-sm"
+								th:href="@{/template/form(id=${temp.id})}"
+								th:text="'Ver/Editar'"></a></td>
+							<td><a class="btn btn-danger btn-sm"
+								th:href="@{/template/delete(id=${temp.id})}"
+								th:text="'Eliminar'"
+								onclick="return confirm('¿Estas seguro que desea eliminar el template?');"></a></td>
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<script th:fragment="javascript">
+		$(function() {
+
+			$("#search_recipe").autocomplete(
+					{
+						source : function(request, response) {
+							$.ajax({
+								url : "/recipe/${sessionUser.id}/list/" + request.term,
+								dataType : "json",
+								data : {
+									term : request.term
+								},
+								success : function(data) {
+									response($.map(data, function(item) {
+										return {
+											label : item
+										};
+									}));
+								},
+							});
+						}
+					});
+			
+
+	</script>
+</body>
+</html>

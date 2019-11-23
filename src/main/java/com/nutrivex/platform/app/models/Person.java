@@ -8,13 +8,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Data;
+
 @Entity
 @Table(name="people")
-public class Person implements Serializable {
+public @Data class Person implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,19 +40,24 @@ public class Person implements Serializable {
 	@Column(name = "sex")
 	private String sex;
 	
+<<<<<<< HEAD
 	@Column(name="credit_Card")
 	private String creditCard;
 	
+=======
+
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 	@Column(name="nutritionist_specialty")
 	private String nutritionistSpecialty;
 
 	@Column(name="tuition_number")
 	private String tuitionNumber;
 	
-	@OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
-	private User user;	
-
-
+	//PERSONA ASOCIADA AL USUARIO
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	public Person() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -58,6 +66,7 @@ public class Person implements Serializable {
 	public String toString() {
 		return firstName + " " + lastName;
 	}
+<<<<<<< HEAD
 	
 	public Long getId() {
 		return id;
@@ -141,6 +150,8 @@ public class Person implements Serializable {
 	}
 
 
+=======
+>>>>>>> 7287a2dcd533602f1afca19a0d858e0d1d834708
 
 	private static final long serialVersionUID = 1L;
 
